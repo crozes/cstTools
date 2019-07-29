@@ -211,9 +211,9 @@
     $pdf->FancyTable($header,getFullHours());
     $pdf->Ln(6);
     $pdf->SetFont('RobotoReg','',12);
-    $pdf->Cell(10,0,'Total : ',0,0);
+    $pdf->Cell(15,0,'Total : ',0,0);
     $pdf->SetFont('RobotoTitre','',14);
     $getTotalHour = getTotalHour();
-    $pdf->Cell(100,0,$getTotalHour['timeSum'],0,1);
+    $pdf->Cell(100,0,substr($getTotalHour['timeSum'],0,5),0,1);
     $pdf->Output();
 ?>
