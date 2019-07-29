@@ -9,27 +9,58 @@
         $year = $_GET["year"];
     }
 
-    include '../all/log_db.php';
-    try{
-        $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
-        $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
-        //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
-        $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-    }catch(Exception $e){
-        die('Erreur  : ' . $e->getMessage());
+    function getFullHours(){
+        global $month;
+        global $year;
+        include '../all/log_db.php';
+        try{
+            $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
+            //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+            $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            die('Erreur  : ' . $e->getMessage());
+        }
+
+        $sql="  SELECT h.idHoraire, h.dateHoraire, h.timeHoraire, h.comHoraire, li.nomLieuInter, ti.nomTypeInter 
+                FROM Horaire h 
+                INNER JOIN LieuInter li ON h.idLieuInter = li.idLieuInter 
+                INNER JOIN TypeInter ti ON h.idTypeInter = ti.idTypeInter 
+                WHERE `dateHoraire` >= '".$year."-".$month."-00 00:00:00' 
+                AND `dateHoraire` <='".$year."-".$month."-31 23:59:59' 
+                AND `idPersonne` = ".$_SESSION['Auth'][0]->idPersonne." ORDER BY dateHoraire;";
+
+        $req = $PDO->prepare($sql);
+        $req->execute();
+        $data = $req->fetchAll();
+
+        return $data;
     }
 
-    $sql="  SELECT h.idHoraire, h.dateHoraire, h.timeHoraire, h.comHoraire, li.nomLieuInter, ti.nomTypeInter 
-            FROM Horaire h 
-            INNER JOIN LieuInter li ON h.idLieuInter = li.idLieuInter 
-            INNER JOIN TypeInter ti ON h.idTypeInter = ti.idTypeInter 
-            WHERE `dateHoraire` >= '".$year."-".$month."-00 00:00:00' 
-            AND `dateHoraire` <='".$year."-".$month."-31 23:59:59' 
-            AND `idPersonne` = ".$_SESSION['Auth'][0]->idPersonne." ORDER BY dateHoraire;";
+    function getTotalHour(){
+        global $month;
+        global $year;
+        include '../all/log_db.php';
+        try{
+            $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
+            //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+            $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            die('Erreur  : ' . $e->getMessage());
+        }
 
-    $req = $PDO->prepare($sql);
-    $req->execute();
-    $data = $req->fetchAll();
+        $sql = "    SELECT  SEC_TO_TIME( SUM( TIME_TO_SEC( `timeHoraire` ) ) ) AS timeSum  
+                    FROM Horaire 
+                    WHERE idPersonne = ".$_SESSION['Auth'][0]->idPersonne." 
+                    AND `dateHoraire` >= '".$year."-".$month."-00 00:00:00'  
+                    AND `dateHoraire` <='".$year."-".$month."-31 23:59:59'";
+        $req = $PDO->prepare($sql);
+        $req->execute();
+        $data = $req->fetch();
+        
+        return $data;
+    }
 
     //print_r($data);
 
@@ -75,9 +106,8 @@
             $this->SetTextColor(255);
             $this->SetDrawColor(128,0,0);
             $this->SetLineWidth(.3);
-            $this->SetFont('','');
             // En-tête
-            $w = array(25, 38, 25, 40, 64);
+            $w = array(20, 40, 18, 40, 72);
             for($i=0;$i<count($header);$i++)
                 $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
             $this->Ln();
@@ -89,21 +119,66 @@
             $fill = false;
             foreach($data as $row)
             {
+                $this->SetFont('RobotoReg','',8);
                 $this->Cell($w[0],6,date("d/m/Y", strtotime($row['dateHoraire'])),'LR',0,'C',$fill);
                 $this->SetFont('RobotoReg','',8);
                 $this->Cell($w[1],6,$row['nomLieuInter'],'LR',0,'C',$fill);
-                $this->SetFont('RobotoReg','',12);
+                $this->SetFont('RobotoReg','',8);
                 $this->Cell($w[2],6,substr($row['timeHoraire'],0,5),'LR',0,'C',$fill);
                 $this->SetFont('RobotoReg','',8);
                 $this->Cell($w[3],6,$row['nomTypeInter'],'LR',0,'C',$fill);
+                $this->SetFont('RobotoReg','',6);
                 $this->Cell($w[4],6,$row['comHoraire'],'LR',0,'L',$fill);
-                $this->SetFont('RobotoReg','',12);
                 $this->Ln();
                 $fill = !$fill;
             }
             // Trait de terminaison
             $this->Cell(array_sum($w),0,'','T');
         }
+    }
+
+    function getFraMonth($monthToTranslate){
+        $newMonth = "";
+        if($monthToTranslate == "January"){
+            $newMonth = "Janvier";
+        }
+        else if($monthToTranslate == "February"){
+            $newMonth = "Fevrier";
+        }
+        else if($monthToTranslate == "March"){
+            $newMonth = "Mars";
+        }
+        else if($monthToTranslate == "April"){
+            $newMonth = "Avril";
+        }
+        else if($monthToTranslate == "May"){
+            $newMonth = "Mai";
+        }
+        else if($monthToTranslate == "June"){
+            $newMonth = "Juin";
+        }
+        else if($monthToTranslate == "July"){
+            $newMonth = "Juillet";
+        }
+        else if($monthToTranslate == "August"){
+            $newMonth = "Août";
+        }
+        else if($monthToTranslate == "September"){
+            $newMonth = "Septembre";
+        }
+        else if($monthToTranslate == "October"){
+            $newMonth = "Octobre";
+        }
+        else if($monthToTranslate == "November"){
+            $newMonth = "Novembre";
+        }
+        else if($monthToTranslate == "December"){
+            $newMonth = "Decembre";
+        }
+        else{
+            $newMonth = "POUET";
+        }
+        return $newMonth;
     }
 
     // Instanciation de la classe dérivée
@@ -119,7 +194,7 @@
     $pdf->Cell(0,0,'Déclaration Horaire de ',0,1,'C');
     $pdf->Ln(8);
     $pdf->SetFont('Roboto-Black','',20);
-    $pdf->Cell(0,0,strftime("%B", strtotime($month."/".$month."/".$year)).' '.$year,0,1,'C');
+    $pdf->Cell(0,0,getFraMonth(strftime("%B", strtotime($month."/".$month."/".$year))).' '.$year,0,1,'C');
     $pdf->Ln(10);
     $pdf->SetFont('RobotoReg','',12);
     $pdf->Cell(20,0,'Nom : ',0,0);
@@ -130,9 +205,15 @@
     $pdf->Cell(20,0,'Prenom : ',0,0);
     $pdf->SetFont('RobotoTitre','',14);
     $pdf->Cell(20,0,$prenom,0,1);
-    $pdf->SetFont('RobotoReg','',12);
+    $pdf->SetFont('RobotoReg','',10);
     $pdf->Ln(10);
     $header = array('Date', 'Lieu d\'intervention', 'Horaires', 'Type d\'intervention','Commentaires');
-    $pdf->FancyTable($header,$data);
+    $pdf->FancyTable($header,getFullHours());
+    $pdf->Ln(6);
+    $pdf->SetFont('RobotoReg','',12);
+    $pdf->Cell(10,0,'Total : ',0,0);
+    $pdf->SetFont('RobotoTitre','',14);
+    $getTotalHour = getTotalHour();
+    $pdf->Cell(100,0,$getTotalHour['timeSum'],0,1);
     $pdf->Output();
 ?>
