@@ -61,7 +61,7 @@
             // Numéro de page
             $this->SetFont('RobotoReg','',10);
             $this->Cell(18,5,'Généré le : ',0,0);
-            $this->SetFont('Roboto-Black','',10);
+            $this->SetFont('Roboto-Black','',12);
             $this->Cell(20,5,date('d-m-Y'),0,1);
             $this->SetFont('RobotoItal','',12);
             $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
