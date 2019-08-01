@@ -1,3 +1,4 @@
+<?php
 function getFullHours(){
         global $month;
         global $year;
@@ -18,7 +19,6 @@ function getFullHours(){
                 WHERE `dateHoraire` >= '".$year."-".$month."-00 00:00:00' 
                 AND `dateHoraire` <='".$year."-".$month."-31 23:59:59' 
                 AND `idPersonne` = ".$_SESSION['Auth'][0]->idPersonne." ORDER BY dateHoraire;";
-
         $req = $PDO->prepare($sql);
         $req->execute();
         $data = $req->fetchAll();
@@ -51,9 +51,85 @@ function getFullHours(){
         return $data;
     }
 
-    //print_r($data);
+    function getTotalHourFormation(){
+        global $month;
+        global $year;
+        include '../all/log_db.php';
+        try{
+            $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
+            //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+            $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            die('Erreur  : ' . $e->getMessage());
+        }
 
-    //$json  = json_encode($data);
+        $sql = "    SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( h.timeHoraire ) ) ) AS timeSum  
+                    FROM Horaire h INNER JOIN TypeInter t ON h.idTypeInter = t.idTypeInter 
+                    WHERE idPersonne = ".$_SESSION['Auth'][0]->idPersonne." 
+                    AND h.dateHoraire >= '".$year."-".$month."-00 00:00:00'  
+                    AND h.dateHoraire <='".$year."-".$month."-31 23:59:59'
+                    AND t.nomTypeInter REGEXP 'Formation.*'";
+        $req = $PDO->prepare($sql);
+        $req->execute();
+        $data = $req->fetch();
+
+        return $data;
+    }
+
+    function getTotalHourSportif(){
+        global $month;
+        global $year;
+        include '../all/log_db.php';
+        try{
+            $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
+            //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+            $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            die('Erreur  : ' . $e->getMessage());
+        }
+
+        $sql = "    SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( h.timeHoraire ) ) ) AS timeSum  
+                    FROM Horaire h INNER JOIN TypeInter t ON h.idTypeInter = t.idTypeInter 
+                    WHERE idPersonne = ".$_SESSION['Auth'][0]->idPersonne." 
+                    AND h.dateHoraire >= '".$year."-".$month."-00 00:00:00'  
+                    AND h.dateHoraire <='".$year."-".$month."-31 23:59:59'
+                    AND t.nomTypeInter REGEXP 'Sportif.*'";
+        $req = $PDO->prepare($sql);
+        $req->execute();
+        $data = $req->fetch();
+
+        return $data;
+    }
+
+    function getTotalHourAutre(){
+        global $month;
+        global $year;
+        include '../all/log_db.php';
+        try{
+            $PDO = new PDO('mysql:host='.$DB_serveur.';dbname='.$DB_base.';charset=utf8',$DB_utilisateur,$DB_motdepasse);
+            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING); 
+            //$PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ); 
+            $PDO->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        }catch(Exception $e){
+            die('Erreur  : ' . $e->getMessage());
+        }
+
+        $sql = "    SELECT SEC_TO_TIME( SUM( TIME_TO_SEC( h.timeHoraire ) ) ) AS timeSum  
+                    FROM Horaire h INNER JOIN TypeInter t ON h.idTypeInter = t.idTypeInter 
+                    WHERE idPersonne = ".$_SESSION['Auth'][0]->idPersonne." 
+                    AND h.dateHoraire >= '".$year."-".$month."-00 00:00:00'  
+                    AND h.dateHoraire <='".$year."-".$month."-31 23:59:59'
+                    AND NOT t.nomTypeInter REGEXP 'Sportif.*'
+                    AND NOT t.nomTypeInter REGEXP 'Formation.*'";
+        $req = $PDO->prepare($sql);
+        $req->execute();
+        $data = $req->fetch();
+
+        return $data;
+    }
+
 
     class PDF extends tFPDF
     {
@@ -96,7 +172,7 @@ function getFullHours(){
             $this->SetDrawColor(128,0,0);
             $this->SetLineWidth(.3);
             // En-tête
-            $w = array(20, 40, 18, 40, 72);
+            $w = array(20, 40, 22, 40, 68);
             for($i=0;$i<count($header);$i++)
                 $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
             $this->Ln();
@@ -169,3 +245,19 @@ function getFullHours(){
         }
         return $newMonth;
     }
+
+    function formatHoraire($time){
+        $result = '';
+        if($time == null){
+            $result = "---";
+        }
+        else{
+            $result = substr($time,0,5);
+            $result = str_replace(":","h ",$result);
+            $result = $result."min";
+        }
+        return $result;
+    }
+
+
+    ?>
