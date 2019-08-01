@@ -4,8 +4,8 @@
     if(isset($_POST["password"]) && isset($_POST["password2"]) && isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["email"]) && isset($_POST["email2"])){
         $_POST['password'] = strtoupper(hash('sha256', $_POST['password']));
         $_POST['password2'] = strtoupper(hash('sha256', $_POST['password2']));
-        $_POST["nom"] = strtoupper($_POST["nom"]);
-        $_POST["prenom"] = strtoupper($_POST["prenom"]);
+        $_POST["nom"] = mb_strtoupper($_POST["nom"]);
+        $_POST["prenom"] = ucwords(strtolower($_POST["prenom"]));
         if($_POST['password'] != $_POST['password2']){
             $alert = '  <div class="alert alert-danger alert-dismissible fade show" role="alert">
                             <h4 class="alert-heading">Veuillez corriger les erreurs suivantes avant de continuer :</h4>
@@ -113,7 +113,13 @@
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
                     <input id="password2" name="password2" class="form-control" placeholder="Répéter le mot de passe" type="password" required>
-                </div> <!-- form-group// -->                                      
+                </div> <!-- form-group// --> 
+                <div class="form-check mb-2">
+                    <input class="form-check-input" type="checkbox" value="ok" id="checkBox">
+                    <label class="form-check-label" for="checkbox">
+                        J'ai pris connaissance de ...
+                    </label>
+                </div>
                 <div class="form-group">
                     <button type="submit" id="btn_submit" class="btn btn-danger btn-block"> Je créé mon compte </button>
                 </div> <!-- form-group// -->      
