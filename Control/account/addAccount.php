@@ -25,7 +25,7 @@
         $req->execute();
         $data = $req->fetchAll();
 
-        if(count($data)<=0){
+        if(count($data)==0){
             $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`) 
                     VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\');';
 
