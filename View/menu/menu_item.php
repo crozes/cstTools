@@ -9,11 +9,10 @@
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a id="navbarSupportedContent" class="nav-link" href="#"><?php echo $_SESSION['Auth'][0]->prenomPersonne." ".$_SESSION['Auth'][0]->nomPersonne; ?></a>
+            <a id="navbarSupportedContent" class="nav-link" href="?page=moncompte"><?php echo $_SESSION['Auth'][0]->prenomPersonne." ".$_SESSION['Auth'][0]->nomPersonne; ?></a>
         </li>
         <li>
             <a id="navbarSupportedContent" class="nav-link" href="?page=logout">Déconnexion</a>
         </li>
     </ul>
-
 </div>

@@ -31,6 +31,9 @@
             else if($_GET['page']=='logout'){
                 include 'View/login/logout.php';
             }
+            else if($_GET['page']=='moncompte'){
+                include 'View/compte/moncompte.php';
+            }
         }
         else if( $_GET['page']=='login'){
             include 'View/login/login.php';
