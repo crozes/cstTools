@@ -6,6 +6,17 @@
 </div>
 <div class="container">
 	<div class="row">
+	<div class="col-sm-12">
+		<div class="alert alert-danger alert-dismissible" role="alert">
+			<h4 class="alert-heading">Attention !</h4>
+			<p>Les horraires doivent etre envoyées avant le ...</p>
+			<hr>
+			<p class="mb-0">Tout dépassement de cette date entrainera un retard de paiment</p>
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+	</div>
 	<div class="col-sm-3">
 			<div id="mois" class="dropdown mb-4">
 				<label for="inputStateMonth">Mois :</label>
@@ -45,9 +56,9 @@
 				</select>
 			</div>
 		</div>
-		<div class="col-sm-12 mb-4">
-			<button type="button" class="btn btn-success" data-toggle="modal" data-target="#nouvelDecla">
-				Nouveau
+		<div class="col-sm-12 align-self-center mb-4">
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#nouvelDecla">
+				Nouvelle déclaration
 			</button>
 		</div>
 		<canvas id="pizza" class="loader"></canvas>
@@ -75,11 +86,11 @@
 			<div class="card bg-light border-danger">
 				<div class="card-body">
 				<div class="row">
-					<div class="col-10">Total d'heure travaillée :</div>
+					<div class="col-8">Total d'heure travaillée :</div>
 					<div class="col-2"><i class="far fa-clock text-danger" style="font-size : 24px;"></i></div>
 				</div>
 				<div class="row">
-					<div class="col-12"><h2 class="card-subtitle mb-2 text-danger" id="totalHeures"></h2></div>
+					<div class="col-12 mt-2"><h2 class="card-subtitle mb-2 text-danger" id="totalHeures"></h2></div>
 				</div>
 			</div>
 		</div>
@@ -309,12 +320,12 @@ function reloadTable(){
 				var index = "horraire"+i;
 				var date = $.format.date(this.dateHoraire+" 00:00:00", "E dd MMM yy");
 				$("#bodyHoraire").append('<tr id="'+index+'" ></tr>');
-				$("#"+index).append('<td>'+i+'</td>');
-				$("#"+index).append('<td class="autoSizing">'+date+'</td>');
-				$("#"+index).append('<td class="autoSizing">'+this.nomLieuInter+'</td>');
-				$("#"+index).append('<td class="autoSizing text-center">'+(this.timeHoraire).slice(0,-3)+'</td>');
-				$("#"+index).append('<td class="autoSizing">'+this.nomTypeInter+'</td>');
-				$("#"+index).append('<td>'+this.comHoraire+'</td>');
+				$("#"+index).append('<td class="align-middle text-center">'+i+'</td>');
+				$("#"+index).append('<td class="autoSizing align-middle">'+date+'</td>');
+				$("#"+index).append('<td class="autoSizing align-middle">'+this.nomLieuInter+'</td>');
+				$("#"+index).append('<td class="autoSizing text-center align-middle">'+(this.timeHoraire).slice(0,-3)+'</td>');
+				$("#"+index).append('<td class="autoSizing align-middle">'+this.nomTypeInter+'</td>');
+				$("#"+index).append('<td class="align-middle">'+this.comHoraire+'</td>');
 				//$("#"+index).append('<td class="align-middle"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editDecal" data-idecla="'+this.idHoraire+'"><i class="fas fa-edit text-white" onClick="edit('+this.idHoraire+')"></i></td>');
 				$("#"+index).append('<td class="align-middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteDecla" data-idecla="'+this.idHoraire+'"><i class="fas fa-trash text-white" ></i></button></td>');
 				
