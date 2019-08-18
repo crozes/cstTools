@@ -5,8 +5,8 @@
             <tr> 
             <th scope="col">Nom</th>
             <th scope="col">Prénom</th>
-            <th scope="col">Rôle</th>
             <th scope="col">Mail</th>
+            <th scope="col">Rôle</th>
             <th scope="col">Sup.</th>
             </tr>
         </thead>
@@ -70,8 +70,8 @@
                     $('#usersTable').dataTable().fnAddData( [
                         this.nomPersonne,
                         this.prenomPersonne,
-                        this.nomRole,
                         this.mailPersonne,
+                        this.nomRole,
                         '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button>'] );
                     /*var index = "users"+i;
                     $("#bodyUsers").append('<tr id="'+index+'" ></tr>');
