@@ -77,10 +77,11 @@
         $pdf->SetY(-40);
         $pdf->SetFont('RobotoItal','',8);
         $pdf->Cell(0,0,'En envoyant la présente déclaration horaire, je prend conscience que :',0,1);
-        $pdf->Ln(6);
-        $pdf->SetX(10);
+        $pdf->Ln(4);
+        $pdf->Cell(10,0,'',0,0);
         $pdf->Cell(0,0,'• Seules les dates presentes sur ce document seront prises en compte',0,1);
-        $pdf->Ln(6);
+        $pdf->Ln(4);
+        $pdf->Cell(10,0,'',0,0);
         $pdf->Cell(0,0,'• Tout retard de déclaration entrainera un retard de paiment',0,1);
         $pdf->SetX(0);
         $pdf->Output();
