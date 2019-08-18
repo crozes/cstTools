@@ -76,8 +76,8 @@
         $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHour['timeSum']),1,1,'C');
         $pdf->SetY(-40);
         $pdf->SetFont('RobotoItal','',8);
-        $pdf->SetX(10);
         $pdf->Cell(0,0,'En envoyant la présente déclaration horaire, je prend conscience que :',0,1);
+        $pdf->SetX(10);
         $pdf->Cell(0,0,'• Seules les dates presentes sur ce document seront prises en compte',0,1);
         $pdf->Cell(0,0,'• Tout retard de déclaration entrainera un retard de paiment',0,1);
         $pdf->SetX(0);
