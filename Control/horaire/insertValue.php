@@ -15,8 +15,10 @@
             die('Erreur  : ' . $e->getMessage());
         }
 
-        $sql="  INSERT INTO `Horaire` (`idHoraire`, `dateHoraire`, `timeHoraire`, `comHoraire`, `idLieuInter`, `idTypeInter`, `idPersonne`) 
-        VALUES (NULL, '".$data["dateDecla"]."', '".$data["horaireDecla"]."', '".$data["comDecla"]."', '".$data["lieuDecla"]."', '".$data["typeDecla"]."', '".$_SESSION['Auth'][0]->idPersonne."');";
+        $dateActu = date('Y\/m\/d');
+
+        $sql="  INSERT INTO `Horaire` (`idHoraire`, `dateHoraire`, `timeHoraire`, `comHoraire`, `idLieuInter`, `idTypeInter`, `idPersonne`, declaHoraire) 
+        VALUES (NULL, '".$data["dateDecla"]."', '".$data["horaireDecla"]."', '".$data["comDecla"]."', '".$data["lieuDecla"]."', '".$data["typeDecla"]."', '".$_SESSION['Auth'][0]->idPersonne."', '".$dateActu."');";
 
         $req = $PDO->prepare($sql);
         $req->execute();

@@ -40,7 +40,7 @@
                         </div>';
                 $_POST = "";        
             }
-            else if($ret == 'Exist'){
+            else if($ret == 'Exist'){ 
                 $alert = '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <h4 class="alert-heading">Déjà existant !</h4>
                             <p>L\'adresse mail associée à ce nom existe déjà</p>

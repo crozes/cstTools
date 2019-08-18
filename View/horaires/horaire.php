@@ -9,9 +9,9 @@
 	<div class="col-sm-12">
 		<div class="alert alert-danger alert-dismissible" role="alert">
 			<h4 class="alert-heading">Attention !</h4>
-			<p>Les horraires doivent etre envoyées avant le ...</p>
+			<p>Les horraires doivent etre envoyées avant le 15 du mois suivant</p>
 			<hr>
-			<p class="mb-0">Tout dépassement de cette date entrainera un retard de paiment</p>
+			<p class="mb-0">Tout dépassement de cette date entrainera un retard de paiement</p>
 			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
