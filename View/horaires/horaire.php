@@ -1,3 +1,6 @@
+<?php
+    print_r($_SESSION);
+?>
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
 	<div class="container">
 		<h1 class="display-3">Déclaration des heures</h1>
