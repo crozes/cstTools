@@ -104,7 +104,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3 mt-4 mb-4">
-				<a id="envoyerPDFButton" class="btn btn-danger" href="#" role="button" onclick="genPdf()" target="_blank">Envoyer</a>
+				<a id="envoyerPDFButton" class="btn btn-danger" href="#" role="button" onclick="genPdf()" target="_blank">Générer le PDF</a>
 			</div>
 		</div>
 	</div>

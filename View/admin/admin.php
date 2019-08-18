@@ -1,5 +1,5 @@
 <?php
-    include "Control/admin/getInfo.php"
+    include "Control/admin/getInfo.php";
 ?>
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
 	<div class="container">
@@ -8,7 +8,7 @@
 	</div>
 </div>
 <div class="container">
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">
                 <div class="card-body ">
@@ -29,7 +29,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i> Voir...
+                        <a href="?page=admin&type=users"><i class="fa fa-refresh mr-2"></i> Voir les utilisateurs...</a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i> Voir...
+                        <i class="fa fa-refresh mr-2"></i> Voir les déclarations ...
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i> Voir...
+                        <i class="fa fa-refresh mr-2"></i> Voir les types d'action ...
                     </div>
                 </div>
             </div>
@@ -104,10 +104,20 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh"></i> Voir...
+                        <i class="fa fa-refresh mr-2"></i> Voir les lieux d'action ...
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="corpAdministration">
+        <?php
+            if($_GET["type"]=="users"){
+                include "View/admin/Admin_users.php";
+            }
+            else{
+                include "View/admin/Admin_accueil.php";
+            }
+        ?>
     </div>
 </div>

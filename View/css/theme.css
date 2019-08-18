@@ -92,3 +92,7 @@ body{
 .dropdown-item.active, .dropdown-item:active{
     background-color: #dc3545 !important;
 }
+
+table.dataTable.no-footer{
+    border-bottom: 0px solid #111;
+}
