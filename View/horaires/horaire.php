@@ -66,15 +66,15 @@
 			<table class="table table-striped table-responsive table-bordered align-middle border-danger">
 				<thead>
 					<tr>
-					<th scope="col">#</th>
-					<th scope="col">Date</th>
-					<th scope="col">Lieu d'intervention</th>
-					<th scope="col">Horaires</th>
-					<th scope="col">Type d'intervention</th>
-					<th scope="col" style="width:100%">Commentaires</th>
+					<th class="align-middle" scope="col">#</th>
+					<th class="align-middle" scope="col">Date</th>
+					<th class="align-middle" scope="col">Lieu d'intervention</th>
+					<th class="align-middle" scope="col">Horaires</th>
+					<th class="align-middle" scope="col">Type d'intervention</th>
+					<th class="align-middle" scope="col" style="width:100%">Commentaires</th>
 					<!--<th scope="col">Total heures</th>-->
 					<!--<th scope="col">Mod.</th>-->
-					<th scope="col">Sup.</th>
+					<th class="align-middle" scope="col">Sup.</th>
 					</tr>
 				</thead>
 				<tbody id="bodyHoraire">
