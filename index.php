@@ -34,7 +34,7 @@
             else if($_GET['page']=='moncompte'){
                 include 'View/compte/moncompte.php';
             }
-            if ($_SESSION['Auth']->idRole==2){
+            if ($_SESSION['Auth']->nomRole=="admin"){
                 if($_GET['page']=='admin'){
                     include 'View/admin/admin.php';
                 }
