@@ -49,7 +49,7 @@ body{
 
 .card-stats .card-body .numbers {
     text-align: right;
-    font-size: 2em
+    font-size: 1.8em;
 }
 
 .card-stats .card-body .numbers p {
