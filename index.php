@@ -34,10 +34,13 @@
             else if($_GET['page']=='moncompte'){
                 include 'View/compte/moncompte.php';
             }
-            if ($_SESSION['Auth'][0]->nomRole=="admin"){
+            else if ($_SESSION['Auth'][0]->nomRole=="admin"){
                 if($_GET['page']=='admin'){
                     include 'View/admin/admin.php';
                 }
+            }
+            else{
+                header('Location:index.php');
             }
         }
         else if( $_GET['page']=='login'){

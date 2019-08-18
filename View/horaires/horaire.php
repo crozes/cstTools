@@ -20,7 +20,7 @@
 	<div class="col-sm-3">
 			<div id="mois" class="dropdown mb-4">
 				<label for="inputStateMonth">Mois :</label>
-				<select id="inputStateMonth" class="form-control" onchange="reloadTable()">
+				<select id="inputStateMonth" class="selectpicker" onchange="reloadTable()">
 					<option value="01">Janvier</option>
 					<option value="02">Février</option>
 					<option value="03">Mars</option>
@@ -39,20 +39,12 @@
 		<div class="col-sm-3">
 			<div id="years" class="dropdown mb-4">
 				<label for="inputStateYear">Année :</label>
-				<select id="inputStateYear" class="form-control" onchange="reloadTable()">
+				<select id="inputStateYear" class="selectpicker" onchange="reloadTable()">
 					<option value="2018">2018</option>
 					<option value="2019">2019</option>
 					<option value="2020">2020</option>
 					<option value="2021">2021</option>
 					<option value="2022">2022</option>
-					<option value="2023">2023</option>
-					<option value="2024">2024</option>
-					<option value="2025">2025</option>
-					<option value="2026">2026</option>
-					<option value="2027">2027</option>
-					<option value="2028">2028</option>
-					<option value="2029">2029</option>
-					<option value="2030">2030</option>
 				</select>
 			</div>
 		</div>
@@ -63,7 +55,7 @@
 		</div>
 		<canvas id="pizza" class="loader"></canvas>
 		<div class="col-sm-12">
-			<table class="table table-striped table-responsive table-bordered align-middle border-danger">
+			<table class="table table-striped table-responsive table-bordered align-middle">
 				<thead>
 					<tr>
 					<th class="align-middle" scope="col">#</th> 
@@ -82,19 +74,32 @@
 			</table>
 		</div>
 		<!--------  STATS -------->
-		<div class="col-sm-6 col-md-4 col-lg-3">
-			<div class="card bg-light border-danger">
-				<div class="card-body">
+		<div class="col-lg-3 col-md-6 col-sm-6">
+			<div class="card card-stats">
+				<div class="card-body ">
 				<div class="row">
-					<div class="col-8">Total d'heure travaillée :</div>
-					<div class="col-2"><i class="far fa-clock text-danger" style="font-size : 24px;"></i></div>
+					<div class="col-5 col-md-3">
+					<div class="icon-big text-center">
+						<i class="far fa-clock text-danger"></i>
+					</div>
+					</div>
+					<div class="col-7 col-md-9">
+					<div class="numbers">
+						<p class="card-category">Total d'heure travaillée :</p>
+						<p class="card-title" id="totalHeures">
+						</p><p>
+					</p></div>
+					</div>
 				</div>
-				<div class="row">
-					<div class="col-12 mt-2"><h2 class="card-subtitle mb-2 text-danger" id="totalHeures"></h2></div>
+				</div>
+				<!--<div class="card-footer ">
+				<hr>
+				<div class="stats">
+					<i class="fa fa-refresh"></i> Update Now
+				</div>-->
 				</div>
 			</div>
 		</div>
-
 		<!--------  ENVOYER -------->
 	</div>
 	<div class="container">
@@ -131,14 +136,12 @@
 		</div>
 		<div class="form-group">
 		  <label for="lieu_declaration">Lieux<sup>*</sup></label>
-		  <select class="form-control" name="lieu_declaration" id="lieu_declaration">
-		  </select>
+		  <select class="selectpicker" name="lieu_declaration" id="lieu_declaration" title="Choisir un lieu" data-width="100%"></select>
 		  <small id="helpId" class="form-text text-muted">Si "Autres" précisez en commentaire</small>
 		</div>
 		<div class="form-group">
 		  <label for="type_declaration">Type d'action<sup>*</sup></label>
-		  <select class="form-control" name="type_declaration" id="type_declaration">
-		  </select>
+		  <select class="selectpicker" name="type_declaration" id="type_declaration" title="Choisir une action" data-width="100%"></select>
 		</div>
 		<div class="form-group">
 		  <label for="commentaire_declaration">Commentaire</label>

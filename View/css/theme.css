@@ -32,3 +32,63 @@ td.autoSizing{
 .valid{
     border-color: #28a745;
 }
+
+body{
+    background-color: #f4f3ef;
+}
+
+.table{
+    background-color: #ffffff;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    border-radius: 12px;
+}
+
+.card-stats .card-body {
+    padding: 15px 15px 0
+}
+
+.card-stats .card-body .numbers {
+    text-align: right;
+    font-size: 2em
+}
+
+.card-stats .card-body .numbers p {
+    margin-bottom: 0
+}
+
+.card-stats .card-body .numbers .card-category {
+    color: #9a9a9a;
+    font-size: 16px;
+    line-height: 1.4em
+}
+
+.card-stats .card-footer {
+    padding: 0 15px 15px
+}
+
+.card-stats .card-footer .stats {
+    color: #9a9a9a
+}
+
+.card-stats .card-footer hr {
+    margin-top: 10px;
+    margin-bottom: 15px
+}
+
+.card-stats .icon-big {
+    font-size: 3em;
+    min-height: 64px
+}
+
+.card-stats .icon-big i {
+    line-height: 59px
+}
+
+.card{
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+    border-radius: 12px;
+}
+
+.dropdown-item.active, .dropdown-item:active{
+    background-color: #dc3545 !important;
+}
