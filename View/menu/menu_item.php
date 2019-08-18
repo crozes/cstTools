@@ -6,6 +6,13 @@
         <li class="nav-item">
             <a id="navbarSupportedContent" class="nav-link" href="?page=horaire">Déclaration Horaire</a>
         </li>
+        <?php
+            if($_SESSION['Auth']['idRole']==2){
+                echo '  <li class="nav-item">
+                             <a id="navbarSupportedContent" class="nav-link" href="?page=admin">Administration</a>
+                        </li>';
+            }
+        ?>
     </ul>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">

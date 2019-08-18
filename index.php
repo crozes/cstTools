@@ -34,6 +34,11 @@
             else if($_GET['page']=='moncompte'){
                 include 'View/compte/moncompte.php';
             }
+            if ($_SESSION['Auth']['idRole']==2){
+                if($_GET['page']=='admin'){
+                    include 'View/admin/admin.php';
+                }
+            }
         }
         else if( $_GET['page']=='login'){
             include 'View/login/login.php';
