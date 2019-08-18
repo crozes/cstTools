@@ -74,9 +74,11 @@
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
         $getTotalHour = getTotalHour();
         $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHour['timeSum']),1,1,'C');
-        $pdf->SetY(-30);
+        $pdf->SetY(-40);
         $pdf->SetFont('RobotoItal','',8);
-        $pdf->Cell(0,0,'En envoyant la présente déclaration horaire, je m’engage à :',0,0);
+        $pdf->Cell(0,0,'En envoyant la présente déclaration horaire, je prend conscience que :',0,0);
+        $pdf->Cell(10,0,'• Seules les dates presentes sur ce document seront prises en compte',0,0);
+        $pdf->Cell(10,0,'• Tout retard de déclaration entrainera un retard de paiment',0,0);
         $pdf->Output();
         //$pdf->Output("declaHoraire".$month.$year);
     }
