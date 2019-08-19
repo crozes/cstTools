@@ -7,7 +7,7 @@
             <a id="navbarSupportedContent" class="nav-link" href="?page=horaire">Déclaration Horaire</a>
         </li>
         <?php
-            if($_SESSION['Auth'][0]->nomRole=="admin"){
+            if($_SESSION['Auth'][0]->nomRole=="Administrateur"){
                 echo '  <li class="nav-item">
                              <a id="navbarSupportedContent" class="nav-link" href="?page=admin">Administration</a>
                         </li>';
