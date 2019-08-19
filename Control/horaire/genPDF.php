@@ -26,6 +26,7 @@
 
         // Instanciation de la classe dérivée
         $pdf = new PDF();
+        $pdf->SetTitle($nom.'_'.$month.'_'.$year);
         $pdf->AddFont('RobotoReg','','Roboto-Light.ttf',true);
         $pdf->AddFont('Roboto-Black','','Roboto-BoldItalic.ttf',true);
         $pdf->AddFont('RobotoTitre','','Roboto-Bold.ttf',true);
