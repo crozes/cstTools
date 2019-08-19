@@ -64,7 +64,7 @@
         $pdf->Cell(43,$hHeuresTotal,'Total d\'heures travaillées : ',0,0);
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
         $getTotalHour = getTotalHour();
-        $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHour['timeSum']),1,1,'C');
+        $pdf->Cell($wHeures,$hHeures,formatHoraireTotal($getTotalHour['timeSum']),1,1,'C');
         $pdf->SetFont('RobotoReg','',$sFontHeuresTotal);
         $pdf->Cell($wHeuresTotal,$hHeuresTotal,'Total d\'heures d\'entrainement : ',0,0);
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);

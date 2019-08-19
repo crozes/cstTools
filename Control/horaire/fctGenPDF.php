@@ -253,6 +253,17 @@ function getFullHours(){
         }
         else{
             $result = substr($time,0,5);
+        }
+        return $result;
+    }
+
+    function formatHoraireTotal($time){
+        $result = '';
+        if($time == null){
+            $result = "---";
+        }
+        else{
+            $result = substr($time,0,5);
             $result = str_replace(":","h ",$result);
             $result = $result."min";
         }
