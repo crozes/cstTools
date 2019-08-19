@@ -109,7 +109,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-3 mt-4 mb-4">
-				<a id="envoyerPDFButton" class="btn btn-danger" href="#" role="button" onclick="genPdf()" target="_blank">Générer le PDF</a>
+				<a id="envoyerPDFButton" class="btn btn-danger" href="#" role="button" onclick="genPdf()">Générer le PDF</a>
 			</div>
 		</div>
 	</div>
@@ -190,7 +190,9 @@
 <script>
 
 function genPdf(){
-	window.location.href = "Control/horaire/genPDF.php?month=" + $("#inputStateMonth").val() + "&year=" + $("#inputStateYear").val();
+	var path = "Control/horaire/genPDF.php?month=" + $("#inputStateMonth").val() + "&year=" + $("#inputStateYear").val();
+	window.open(path,'_blank');
+	//window.location.href = path;
 }
 
 function getTotalHourMonth(){
