@@ -58,7 +58,13 @@
         $pdf->Cell($wHeuresTotal,$hHeuresTotal,'Total d\'heures de formation : ',0,0);
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
         $getTotalHourFormation = getTotalHourFormation();
-        $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHourFormation['timeSum']),1,1,'C');
+        $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHourFormation['timeSum']),1,0,'C');
+        $pdf->Cell(52,0,"",0,0);
+        $pdf->SetFont('RobotoReg','',$sFontHeuresTotal);
+        $pdf->Cell(43,$hHeuresTotal,'Total d\'heures travaillées : ',0,0);
+        $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
+        $getTotalHour = getTotalHour();
+        $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHour['timeSum']),1,1,'C');
         $pdf->SetFont('RobotoReg','',$sFontHeuresTotal);
         $pdf->Cell($wHeuresTotal,$hHeuresTotal,'Total d\'heures d\'entrainement : ',0,0);
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
@@ -69,12 +75,6 @@
         $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
         $getTotalHourAutre = getTotalHourAutre();
         $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHourAutre['timeSum']),1,1,'C');
-        $pdf->SetFont('RobotoReg','',$sFontHeuresTotal);
-        $pdf->Ln(5);
-        $pdf->Cell($wHeuresTotal,$hHeuresTotal,'Total d\'heures travaillées : ',0,0);
-        $pdf->SetFont('RobotoTitre','',$sFontHeuresTotal);
-        $getTotalHour = getTotalHour();
-        $pdf->Cell($wHeures,$hHeures,formatHoraire($getTotalHour['timeSum']),1,1,'C');
         $pdf->SetY(-40);
         $pdf->SetFont('RobotoItal','',8);
         $pdf->Cell(0,0,'En envoyant la présente déclaration horaire, je prend conscience que :',0,1);
@@ -83,7 +83,7 @@
         $pdf->Cell(0,0,'• Seules les dates presentes sur ce document seront prises en compte',0,1);
         $pdf->Ln(4);
         $pdf->Cell(10,0,'',0,0);
-        $pdf->Cell(0,0,'• Tout retard de déclaration entrainera un retard de paiment',0,1);
+        $pdf->Cell(0,0,'• Tout retard de déclaration entrainera un retard de paiement',0,1);
         $pdf->SetX(0);
         $pdf->Output();
         //$pdf->Output("declaHoraire".$month.$year);
