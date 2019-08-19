@@ -7,6 +7,7 @@
             <th scope="col">Prénom</th>
             <th scope="col">Mail</th>
             <th scope="col">Rôle</th>
+            <th scope="col">Date de Création</th>
             <th scope="col">Sup.</th>
             </tr>
         </thead>
@@ -72,6 +73,7 @@
                         this.prenomPersonne,
                         this.mailPersonne,
                         this.nomRole,
+                        "",
                         '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button>'] );
                     /*var index = "users"+i;
                     $("#bodyUsers").append('<tr id="'+index+'" ></tr>');

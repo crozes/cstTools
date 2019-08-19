@@ -1,3 +1,8 @@
+<?php 
+	include "Control/horaire/getValueLieu.php";
+	include "Control/horaire/getValueType.php";  
+?>
+
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
 	<div class="container">
 		<h1 class="display-3">Déclaration des heures</h1>
@@ -135,12 +140,16 @@
 		</div>
 		<div class="form-group">
 		  <label for="lieu_declaration">Lieux<sup>*</sup></label>
-		  <select class="selectpicker" name="lieu_declaration" id="lieu_declaration" title="Choisir un lieu" data-width="100%"></select>
+		  <select class="selectpicker" name="lieu_declaration" id="lieu_declaration" title="Choisir un lieu" data-width="100%">
+		  	<?php echo getValueLieu();?>
+		  </select>
 		  <small id="helpId" class="form-text text-muted">Si "Autres" précisez en commentaire</small>
 		</div>
 		<div class="form-group">
 		  <label for="type_declaration">Type d'action<sup>*</sup></label>
-		  <select class="selectpicker" name="type_declaration" id="type_declaration" title="Choisir une action" data-width="100%"></select>
+		  <select class="selectpicker" name="type_declaration" id="type_declaration" title="Choisir une action" data-width="100%">
+		  	<?php echo getValueType();?>	
+		  </select>
 		</div>
 		<div class="form-group">
 		  <label for="commentaire_declaration">Commentaire</label>
@@ -257,47 +266,6 @@ function deleteHoraire(idTodelete){
 	});
 }
 
-function completeTypeModalForm(){
-	var url = 'Control/horaire/getValueType.php';
-	$.ajax({
-		url : url, // La ressource ciblée
-		type : 'GET', // Le type de la requête HTTP.
-		//dataType : 'json',
-		success : function(json, statut){
-			jQuery.each(json, function() {
-				$("#type_declaration").append(new Option(this.nomTypeInter, this.idTypeInter));
-			});
-		},
-		error : function(resultat, statut, erreur){
-			alert(JSON.stringify(resultat));
-		},
-		complete : function(resultat, statut){
-
-		}
-	});
-}
-
-function completeLieuModalForm(){
-	var url = 'Control/horaire/getValueLieu.php';
-	$.ajax({
-		url : url, // La ressource ciblée
-		type : 'GET', // Le type de la requête HTTP.
-		//dataType : 'json',
-		success : function(json, statut){
-			jQuery.each(json, function() {
-				$("#lieu_declaration").append(new Option(this.nomLieuInter, this.idLieuInter));
-			});
-		},
-		error : function(resultat, statut, erreur){
-			alert(JSON.stringify(resultat));
-		},
-		complete : function(resultat, statut){
-
-		}
-	});
-}
-
-
 $('#deleteDecla').on('show.bs.modal', function (event) {
   var button = $(event.relatedTarget) 
   var recipient = button.data('idecla') 
@@ -380,7 +348,7 @@ $( document ).ready(function() {
 	$("#inputStateMonth").val(month);
 	$("#inputStateYear").val(year);
 	reloadTable();
-	completeLieuModalForm();
-	completeTypeModalForm();
+	//completeLieuModalForm();
+	//completeTypeModalForm();
 });
 </script>
