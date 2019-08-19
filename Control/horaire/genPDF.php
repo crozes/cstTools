@@ -85,7 +85,7 @@
         $pdf->Cell(10,0,'',0,0);
         $pdf->Cell(0,0,'• Tout retard de déclaration entrainera un retard de paiement',0,1);
         $pdf->SetX(0);
-        $pdf->Output();
+        $pdf->Output($nom.'_'.$month.'_'.$year.'.pdf','D');
         //$pdf->Output("declaHoraire".$month.$year);
     }
     else{
