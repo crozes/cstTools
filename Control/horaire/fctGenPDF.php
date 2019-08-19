@@ -190,7 +190,7 @@ function getFullHours(){
                 $this->Cell($w[1],6,$row['nomLieuInter'],'LR',0,'C',$fill);
                 $this->SetFont('RobotoReg','',8);
                 $this->Cell($w[2],6,substr($row['timeHoraire'],0,5),'LR',0,'C',$fill);
-                $this->SetFont('RobotoReg','',8);
+                $this->SetFont('RobotoReg','',7);
                 $this->Cell($w[3],6,$row['nomTypeInter'],'LR',0,'C',$fill);
                 $this->SetFont('RobotoReg','',7);
                 $this->Cell($w[4],6,$row['comHoraire'],'LR',0,'L',$fill);
