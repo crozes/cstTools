@@ -342,13 +342,11 @@ function newDecla(){
 }
 
 $( document ).ready(function() {
-	reloadTable();
 	var time = new Date();
 	var month = ("0" + (time.getMonth() + 1)).slice(-2);
 	var year = time.getFullYear();
 	$('#inputStateMonth').selectpicker('val',month);
 	$('#inputStateYear').selectpicker('val',year);
-	//$("#inputStateMonth").val(month);
-	//$("#inputStateYear").val(year);
+	reloadTable();
 });
 </script>
