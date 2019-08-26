@@ -25,7 +25,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteDeclaa">Supprimer la déclaration ?</h5>
+                <h5 class="modal-title" id="deleteDeclaa">Supprimer le type ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
@@ -66,6 +66,7 @@
                         alert("Erreur lors de la suppression contacter l'administrateur");
                     }
                     else{
+                        alert("Type bien ajouté");
                         $("#newType").val(null);
                         reloadTable();
                     }
