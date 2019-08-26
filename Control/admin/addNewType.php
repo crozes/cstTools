@@ -14,8 +14,7 @@
             die('Erreur  : ' . $e->getMessage());
         }
 
-        $sql="  DELETE FROM `Personne` 
-        WHERE `Personne`.`idPersonne` = ".$data['idToDelete'].";";
+        $sql="INSERT INTO `TypeInter` (`idTypeInter`, `nomTypeInter`) VALUES (NULL, '".$data['addType']."');";
 
         $req = $PDO->prepare($sql);
         $req->execute();

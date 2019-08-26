@@ -1,5 +1,5 @@
 <div class="col-sm-12 mb-4">
-    <h2>Utilisateurs :</h2>
+    <h2>Déclarations :</h2>
     <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
         <thead>
             <tr> 
@@ -15,17 +15,17 @@
         </body>
     </table>
 
-    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteUserr" aria-hidden="true">
+    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteDeclaa" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="deleteUserr">Supprimer l'utilisateur ?</h5>
+                <h5 class="modal-title" id="deleteDeclaa">Supprimer la déclaration ?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div class="modal-body">
-                <p>Voulez-vous vraiment supprimer l'utilisateur ?</p>
+                <p>Voulez-vous vraiment supprimer la déclaration ?</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
@@ -36,7 +36,7 @@
     </div>
 <script src="Control/horaire/DateFormat.js"></script>
 <script>
-    function deleteUser(idTodelete){
+    function deleteHoraire(idTodelete){
         var obj = {"idToDelete":idTodelete};
         var jsonValue = JSON.stringify(obj);
         
@@ -62,13 +62,6 @@
             }
         });
     }
-
-    $('#deleteUser').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) 
-        var recipient = button.data('idecla') 
-        var modal = $(this)
-        modal.find('#validDeleteButton').attr("onClick","deleteUser("+recipient+")")
-    });
 
     function reloadTable(){
         //$('#bodyUsers').empty();

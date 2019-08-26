@@ -29,7 +29,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <a href="?page=admin&type=users"><i class="fa fa-refresh mr-2"></i> Voir les utilisateurs...</a>
+                        <a href="?page=admin&type=users" class="text-primary"><i class="fa fa-refresh mr-2"></i> Voir les utilisateurs...</a>
                     </div>
                 </div>
             </div>
@@ -54,7 +54,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh mr-2"></i> Voir les déclarations ...
+                    <a href="?page=admin&type=declarations" class="text-success"><i class="fa fa-refresh mr-2"></i> Voir les déclarations...</a>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh mr-2"></i> Voir les types d'action ...
+                        <a href="?page=admin&type=types-action" class="text-warning"><i class="fa fa-refresh mr-2"></i> Voir les types d'action...</a>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                 <div class="card-footer ">
                     <hr>
                     <div class="stats">
-                        <i class="fa fa-refresh mr-2"></i> Voir les lieux d'action ...
+                    <a href="?page=admin&type=lieux-action" class="text-danger"><i class="fa fa-refresh mr-2"></i> Voir les lieux d'action...</a>
                     </div>
                 </div>
             </div>
@@ -114,6 +114,15 @@
         <?php
             if($_GET["type"]=="users"){
                 include "View/admin/Admin_users.php";
+            }
+            else if($_GET["type"]=="declarations"){
+                include "View/admin/Admin_declas.php";
+            }
+            else if($_GET["type"]=="types-action"){
+                include "View/admin/Admin_types.php";
+            }
+            else if($_GET["type"]=="lieux-action"){
+                include "View/admin/Admin_lieux.php";
             }
             else{
                 include "View/admin/Admin_accueil.php";
