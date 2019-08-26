@@ -11,10 +11,9 @@
         die('Erreur  : ' . $e->getMessage());
     }
 
-    $sql="  SELECT p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, r.nomRole, p.dateDeclaPersonne
-            FROM Personne p 
-            INNER JOIN Role r ON r.idRole = p.idRole
-            ORDER BY nomPersonne;";
+    $sql="  SELECT l.nomLieuInter, l.idLieuInter
+            FROM LieuInter l 
+            ORDER BY nomLieuInter;";
 
     $req = $PDO->prepare($sql);
     $req->execute();

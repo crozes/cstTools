@@ -25,9 +25,11 @@
         $req->execute();
         $data = $req->fetchAll();
 
+        $dateActu = date('Y\/m\/d');
+
         if(count($data)==0){
-            $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`) 
-                    VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\');';
+            $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`, dateCreaPersonne) 
+                    VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', $dateActu);';
 
             $req = $PDO->prepare($sql_insert);
             $req->execute();

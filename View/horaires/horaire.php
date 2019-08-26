@@ -1,6 +1,6 @@
 <?php 
 	include "Control/horaire/getValueLieu.php";
-	include "Control/horaire/getValueType.php";  
+	include "Control/horaire/getValueType.php";
 ?>
 
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
