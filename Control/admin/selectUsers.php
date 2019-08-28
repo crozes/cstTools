@@ -14,7 +14,7 @@
     $sql="  SELECT p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, r.nomRole, p.dateDeclaPersonne
             FROM Personne p 
             INNER JOIN Role r ON r.idRole = p.idRole
-            ORDER BY nomPersonne;";
+            ORDER BY dateDeclaPersonne DESC;";
 
     $req = $PDO->prepare($sql);
     $req->execute();

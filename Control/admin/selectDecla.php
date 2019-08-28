@@ -16,7 +16,7 @@
             INNER JOIN Personne p ON h.idPersonne = p.idPersonne
             INNER JOIN LieuInter l ON h.idLieuInter = l.idLieuInter
             INNER JOIN TypeInter t ON h.idTypeInter = t.idTypeInter
-            ORDER BY nomLieuInter;";
+            ORDER BY declaHoraire DESC;";
 
     $req = $PDO->prepare($sql);
     $req->execute();
