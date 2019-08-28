@@ -1,21 +1,24 @@
 <div class="col-sm-12 mb-4">
-    <h2>Déclarations :</h2>
-    <table class="table table-striped table-bordered table-responsive align-middle text-center" id="usersTable">
-        <thead>
-            <tr> 
-            <th scope="col">Nom Prénom</th>
-            <th scope="col" width="70px">Date</th>
-            <th scope="col">Nbr Heure</th>
-            <th scope="col">Type</th>
-            <th scope="col">Lieux</th>
-            <th scope="col">Com.</th>
-            <th scope="col" width="70px">Date decla.</th>
-            <th scope="col">Sup.</th>
-            </tr>
-        </thead>
-        <body id="bodyUsers">
-        </body>
-    </table>
+    <div class="table-box mb-4">
+        <h2 class="display-4 mb-4">Déclarations :</h2>
+        <hr>
+        <table class="table table-striped table-bordered table-responsive align-middle text-center" id="usersTable">
+            <thead>
+                <tr> 
+                <th scope="col">Nom Prénom</th>
+                <th scope="col" width="70px">Date</th>
+                <th scope="col">Nbr Heure</th>
+                <th scope="col">Type</th>
+                <th scope="col">Lieux</th>
+                <th scope="col">Com.</th>
+                <th scope="col" width="70px">Date decla.</th>
+                <th scope="col">Sup.</th>
+                </tr>
+            </thead>
+            <body id="bodyUsers">
+            </body>
+        </table>
+    </div>
 
     <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteDeclaa" aria-hidden="true">
         <div class="modal-dialog" role="document">

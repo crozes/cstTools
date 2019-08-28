@@ -1,19 +1,22 @@
 <div class="col-sm-12 mb-4">
-    <h2>Utilisateurs :</h2>
-    <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
-        <thead>
-            <tr> 
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Mail</th>
-            <th scope="col">Rôle</th>
-            <th scope="col">Date de Création</th>
-            <th scope="col">Sup.</th>
-            </tr>
-        </thead>
-        <body id="bodyUsers">
-        </body>
-    </table>
+    <div class="table-box mb-4">
+        <h2 class="display-4">Utilisateurs :</h2>
+        <hr>
+        <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
+            <thead>
+                <tr> 
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Mail</th>
+                <th scope="col">Rôle</th>
+                <th scope="col">Date de Création</th>
+                <th scope="col">Sup.</th>
+                </tr>
+            </thead>
+            <body id="bodyUsers">
+            </body>
+        </table>
+    </div>
 
     <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteUserr" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -109,6 +112,15 @@
 
     $(document).ready(function() {
         $('#usersTable').DataTable( {
+            "columns": [
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" }
+            ],
+            responsive: true,
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
             },
