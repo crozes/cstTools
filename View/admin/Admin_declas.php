@@ -1,13 +1,15 @@
 <div class="col-sm-12 mb-4">
     <h2>Déclarations :</h2>
-    <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
+    <table class="table table-striped table-bordered table-responsive align-middle text-center" id="usersTable">
         <thead>
             <tr> 
-            <th scope="col">Nom</th>
-            <th scope="col">Prénom</th>
-            <th scope="col">Mail</th>
-            <th scope="col">Rôle</th>
-            <th scope="col">Date de Création</th>
+            <th scope="col">Nom Prénom</th>
+            <th scope="col" width="70px">Date</th>
+            <th scope="col">Nbr Heure</th>
+            <th scope="col">Type</th>
+            <th scope="col">Lieux</th>
+            <th scope="col">Com.</th>
+            <th scope="col" width="70px">Date decla.</th>
             <th scope="col">Sup.</th>
             </tr>
         </thead>
@@ -65,7 +67,7 @@
 
     function reloadTable(){
         //$('#bodyUsers').empty();
-        var url = 'Control/admin/selectUsers.php';
+        var url = 'Control/admin/selectDecla.php';
         $.ajax({
         url : url,
         type : 'GET',
@@ -73,14 +75,17 @@
         success : function(json, statut){
                 var i = 1;
                 jQuery.each(json, function() {
-                    var date = $.format.date(this.dateDeclaPersonne+" 00:00:00", "dd MMM yyyy");
+                    var date = $.format.date(this.dateHoraire+" 00:00:00", "dd MMM yyyy");
+                    var dateDecla = $.format.date(this.declaHoraire+" 00:00:00", "dd MMM yyyy");
                     $('#usersTable').dataTable().fnAddData( [
-                        this.nomPersonne,
-                        this.prenomPersonne,
-                        this.mailPersonne,
-                        this.nomRole,
+                        this.nomPersonne+" "+this.prenomPersonne,
                         date,
-                        '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button>'] );
+                        this.timeHoraire,
+                        this.nomTypeInter,
+                        this.nomLieuInter,
+                        this.comHoraire,
+                        dateDecla,
+                        '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idHoraire+'"><i class="fas fa-trash text-white" ></i></button>'] );
                     /*var index = "users"+i;
                     $("#bodyUsers").append('<tr id="'+index+'" ></tr>');
                     $("#"+index).append('<td class="autoSizing align-middle">'+this.nomPersonne+'</td>');
@@ -102,6 +107,17 @@
 
     $(document).ready(function() {
         $('#usersTable').DataTable( {
+            "columns": [
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" },
+                { className: "align-middle" }
+            ],
+            responsive: true,
             "language": {
                 "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/French.json"
             },

@@ -139,7 +139,7 @@ function getFullHours(){
             // Logo
             $this->Image('../../img/logotrans.png',10,6,30);
             // Police Arial gras 15
-            $this->SetFont('RobotoTitre','',24);
+            $this->SetFont('RobotoTitre','',25);
             // Décalage à droite
             $this->Cell(30);
             // Titre

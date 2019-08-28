@@ -96,3 +96,11 @@ body{
 table.dataTable.no-footer{
     border-bottom: 0px solid #111;
 }
+
+div.table-box{
+    border-radius: 12px;
+    box-shadow: 0 6px 10px -4px rgba(0,0,0,.15) !important;
+    border-radius: 12px;
+    padding: 1rem;
+    background-color: white;
+}

@@ -1,25 +1,30 @@
 <div class="col-sm-12 mb-4">
-    <h2>Types :</h2>
-    <div class="row m-4">
-        <div class="col-sm-12 col-md-4">
-            <div class="form-group">
-              <input type="text" class="form-control" name="newType" id="newType" aria-describedby="helpId" placeholder="Ajouter un nouveau Type">
+    <div class="table-box mb-4">
+        <h2 class="display-4">Types :</h2>
+        <hr>
+        <div class="row m-4">
+            <div class="col-sm-12 col-md-4">
+                <div class="form-group">
+                <input type="text" class="form-control" name="newType" id="newType" aria-describedby="helpId" placeholder="Ajouter un nouveau Type">
+                </div>
             </div>
+            <div class="col-sm-12 col-md-4">
+                <button type="button" name="valNewType" id="valNewType" class="btn btn-danger" onclick="addNewType()">Ajouter</button>
+            </div>        
         </div>
-        <div class="col-sm-12 col-md-4">
-            <button type="button" name="valNewType" id="valNewType" class="btn btn-danger" onclick="addNewType()">Ajouter</button>
-        </div>        
     </div>
-    <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
-        <thead>
-            <tr> 
-            <th scope="col" width="90%">Nom</th>
-            <th scope="col" width="10%">Sup.</th>
-            </tr>
-        </thead>
-        <body id="bodyUsers">
-        </body>
-    </table>
+    <div class="table-box">    
+        <table class="table table-striped table-bordered align-middle text-center" id="usersTable">
+            <thead>
+                <tr> 
+                <th scope="col" width="90%">Nom</th>
+                <th scope="col" width="10%">Sup.</th>
+                </tr>
+            </thead>
+            <body id="bodyUsers">
+            </body>
+        </table>
+    </div>
 
     <div class="modal fade" id="deleteType" tabindex="-1" role="dialog" aria-labelledby="deleteDeclaa" aria-hidden="true">
         <div class="modal-dialog" role="document">
