@@ -38,7 +38,7 @@ CREATE TABLE `Horaire` (
   CONSTRAINT `fk_horaire_lieuinter` FOREIGN KEY (`idLieuInter`) REFERENCES `LieuInter` (`idLieuInter`),
   CONSTRAINT `fk_horaire_personne` FOREIGN KEY (`idPersonne`) REFERENCES `Personne` (`idPersonne`),
   CONSTRAINT `fk_horaire_typeinter` FOREIGN KEY (`idTypeInter`) REFERENCES `TypeInter` (`idTypeInter`)
-) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -47,7 +47,7 @@ CREATE TABLE `Horaire` (
 
 LOCK TABLES `Horaire` WRITE;
 /*!40000 ALTER TABLE `Horaire` DISABLE KEYS */;
-INSERT INTO `Horaire` VALUES (27,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(28,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(29,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(37,'2019-08-01','04:00:00','Maintenance application CST Tools',5,23,1,'2019-08-01'),(38,'2019-08-02','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-02'),(39,'2019-08-12','02:00:00','Mis en place plannings de formations',5,24,1,'2019-08-12'),(40,'2019-08-12','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-12'),(41,'2019-08-15','04:00:00','Mis en place formations Drive',5,24,1,'2019-08-15'),(42,'2019-08-16','04:00:00','Mis en place des formations sur le site internet',5,24,1,'2019-08-16'),(43,'2019-08-18','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-18'),(44,'2019-08-19','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-19'),(49,'2019-08-23','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-23'),(50,'2019-08-24','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-26');
+INSERT INTO `Horaire` VALUES (27,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(28,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(29,'2019-07-30','10:00:00','Application \"CST Tools\"',5,23,1,'2019-07-30'),(37,'2019-08-01','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-01'),(38,'2019-08-02','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-02'),(39,'2019-08-12','02:00:00','Mis en place plannings de formations',5,24,1,'2019-08-12'),(40,'2019-08-12','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-12'),(41,'2019-08-15','04:00:00','Mis en place formations Drive',5,24,1,'2019-08-15'),(42,'2019-08-16','04:00:00','Mis en place des formations sur le site internet',5,24,1,'2019-08-16'),(43,'2019-08-18','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-18'),(44,'2019-08-19','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-19'),(49,'2019-08-23','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-23'),(50,'2019-08-24','04:00:00','Application \"CST Tools\"',5,23,1,'2019-08-26'),(51,'2019-08-27','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-27'),(52,'2019-08-28','02:00:00','Application \"CST Tools\"',5,23,1,'2019-08-28');
 /*!40000 ALTER TABLE `Horaire` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,6 +89,7 @@ CREATE TABLE `Personne` (
   `mailPersonne` varchar(255) NOT NULL,
   `mdpPersonne` varchar(255) NOT NULL,
   `idRole` bigint(20) NOT NULL,
+  `dateDeclaPersonne` date NOT NULL,
   PRIMARY KEY (`idPersonne`),
   KEY `fk_personne_role` (`idRole`),
   CONSTRAINT `fk_personne_role` FOREIGN KEY (`idRole`) REFERENCES `Role` (`idRole`)
@@ -101,7 +102,7 @@ CREATE TABLE `Personne` (
 
 LOCK TABLES `Personne` WRITE;
 /*!40000 ALTER TABLE `Personne` DISABLE KEYS */;
-INSERT INTO `Personne` VALUES (1,'CROZES','Cyril','cyril.crozes@gmail.com','D8467FBE34891AEE837EC982F9D55C09C25E00CD7ED95A0330B9C1A9B21EDC03',2),(4,'GARNIER','Ileana','ileanagarnier@hotmail.fr','3797F543038F71446F531CE5A83CE6B33A5F80FCDE580EA3DF91F3700097ABAC',1),(6,'IMBERT','Marie-Cécile','mariececile.imbert@gmail.com','5483D5DF9B245E662C0E4368B8062E8A0FD24C17CE4DED1A0E452E4EE879DD81',2),(7,'COULY ','Sébastien','cstsecretariat@live.fr','C0BB8CA64902FD29CC7F35E4208D0A8A10B6BF49BFFF8CE6CC1F63CECD1BC6AB',2),(8,'CHAUVET','Coraline','coraline.chauvet13@orange.fr','6E85B5D7177E59103D0D09D931EED3C9F2B1AB19B1C6F783D4615C1AEBD39DE5',1),(9,'ROQUES','Cindy','cindy-roques@hotmail.fr','E5069BE9E3E08110E3C26ADF36DECA72FF666DB86512FA46139FD1532F299260',1),(10,'TEST','Test','test@gmail.com','15E2B0D3C33891EBB0F1EF609EC419420C20E320CE94C65FBC8C3312448EB225',1);
+INSERT INTO `Personne` VALUES (1,'CROZES','Cyril','cyril.crozes@gmail.com','D8467FBE34891AEE837EC982F9D55C09C25E00CD7ED95A0330B9C1A9B21EDC03',2,'2019-08-01'),(4,'GARNIER','Ileana','ileanagarnier@hotmail.fr','3797F543038F71446F531CE5A83CE6B33A5F80FCDE580EA3DF91F3700097ABAC',1,'2019-08-01'),(6,'IMBERT','Marie-Cécile','mariececile.imbert@gmail.com','5483D5DF9B245E662C0E4368B8062E8A0FD24C17CE4DED1A0E452E4EE879DD81',2,'2019-08-01'),(7,'COULY ','Sébastien','cstsecretariat@live.fr','C0BB8CA64902FD29CC7F35E4208D0A8A10B6BF49BFFF8CE6CC1F63CECD1BC6AB',2,'2019-09-01'),(8,'CHAUVET','Coraline','coraline.chauvet13@orange.fr','6E85B5D7177E59103D0D09D931EED3C9F2B1AB19B1C6F783D4615C1AEBD39DE5',1,'2019-09-01'),(9,'ROQUES','Cindy','cindy-roques@hotmail.fr','E5069BE9E3E08110E3C26ADF36DECA72FF666DB86512FA46139FD1532F299260',1,'2019-09-01'),(10,'TEST','Test','test@gmail.com','15E2B0D3C33891EBB0F1EF609EC419420C20E320CE94C65FBC8C3312448EB225',1,'2019-09-01');
 /*!40000 ALTER TABLE `Personne` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -163,4 +164,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-08-26 20:22:38
+-- Dump completed on 2019-09-01  4:00:01
