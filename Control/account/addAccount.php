@@ -28,12 +28,14 @@
         $dateActu = date('Y\/m\/d');
 
         if(count($data)==0){
-            $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`, dateCreaPersonne) 
-                    VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', $dateActu);';
+            $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`, `dateDeclaPersonne`) 
+                    VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', \''.$dateActu.'\');';
+
+            echo $sql_insert;   
 
             $req = $PDO->prepare($sql_insert);
             $req->execute();
-            //$data = $req->fetchAll();
+            $data = $req->fetch();
 
             if($req>0){
                 return 'OK';

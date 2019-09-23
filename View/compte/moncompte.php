@@ -75,23 +75,23 @@ if(!empty($_POST)){
                                     <input type="text" id="email" class="form-control" name="email" required autofocus>
                                 </div>
                             </div>
-                            <br/>
+                            <hr/>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Ancien Mot de passe</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="oldpassword" class="form-control" name="oldpassword" required>
+                                    <input type="password" id="oldpassword" class="form-control" name="oldpassword">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Nouveau Mot de passe</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="newpassword" class="form-control" name="newpassword" required>
+                                    <input type="password" id="newpassword" class="form-control" name="newpassword">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Répéter le nouveau Mot de passe</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="renewpassword" class="form-control" name="renewpassword" required>
+                                    <input type="password" id="renewpassword" class="form-control" name="renewpassword">
                                 </div>
                             </div>
 
