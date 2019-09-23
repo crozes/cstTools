@@ -18,8 +18,8 @@
 
         $sql_select = ' SELECT * 
                         FROM Personne p
-                        WHERE p.nomPersonne = '.$nom.'
-                        AND p.mailPersonne = '.$mail ;
+                        WHERE p.nomPersonne = "'.$nom.'"
+                        AND p.mailPersonne = "'.$mail.'"';
         
         $req = $PDO->prepare($sql_select);
         $req->execute();
@@ -31,7 +31,6 @@
             $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`, `dateDeclaPersonne`) 
                     VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', \''.$dateActu.'\');';
 
-            echo $sql_insert;   
 
             $req = $PDO->prepare($sql_insert);
             $req->execute();
