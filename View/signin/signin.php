@@ -44,7 +44,7 @@
                 $alert = '  <div class="alert alert-warning alert-dismissible fade show" role="alert">
                             <h4 class="alert-heading">Déjà existant !</h4>
                             <p>L\'adresse mail associée à ce nom existe déjà</p>
-                            <p>Si vous avez perdu votre mot de passe meri de contacter l\'administrateur</p>
+                            <p>Si vous avez perdu votre mot de passe merci de contacter l\'administrateur</p>
                             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
