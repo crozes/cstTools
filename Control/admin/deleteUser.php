@@ -22,7 +22,8 @@
         $data = $req->fetch();
 
         if($data == false){
-            $data = '{"status" : "OK" , "msg" : "declaration supprimé"}';
+            //$data = '{"status" : "OK" , "msg" : "user supprimé"}';
+            $data = '{"status" : "OK" , "msg" : "user supprimé"}';
         }
         else{
             $data = '{"status" : "KO" , "msg" : "Erreur"}';

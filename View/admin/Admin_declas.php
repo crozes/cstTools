@@ -20,7 +20,7 @@
         </table>
     </div>
 
-    <div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="deleteDeclaa" aria-hidden="true">
+    <div class="modal fade" id="deleteDecla" tabindex="-1" role="dialog" aria-labelledby="deleteDeclaa" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
             <div class="modal-header">
@@ -41,11 +41,11 @@
     </div>
 <script src="Control/horaire/DateFormat.js"></script>
 <script>
-    function deleteHoraire(idTodelete){
+    function deleteDecla(idTodelete){
         var obj = {"idToDelete":idTodelete};
         var jsonValue = JSON.stringify(obj);
         
-        var url = 'Control/admin/deleteUser.php';
+        var url = 'Control/admin/deleteDecla.php';
         $.ajax({
             url : url, // La ressource ciblée
             type : 'POST', // Le type de la requête HTTP.
@@ -68,6 +68,13 @@
         });
     }
 
+    $('#deleteDecla').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget) 
+        var recipient = button.data('idecla') 
+        var modal = $(this)
+        modal.find('#validDeleteButton').attr("onClick","deleteDecla("+recipient+")")
+    });
+
     function reloadTable(){
         //$('#bodyUsers').empty();
         var url = 'Control/admin/selectDecla.php';
@@ -76,7 +83,7 @@
         type : 'GET',
         //dataType : 'json',
         success : function(json, statut){
-                var i = 1;
+                $('#usersTable').dataTable().fnClearTable();
                 jQuery.each(json, function() {
                     var date = $.format.date(this.dateHoraire+" 00:00:00", "dd MMM yyyy");
                     var dateDecla = $.format.date(this.declaHoraire+" 00:00:00", "dd MMM yyyy");
@@ -88,15 +95,7 @@
                         this.nomLieuInter,
                         this.comHoraire,
                         dateDecla,
-                        '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idHoraire+'"><i class="fas fa-trash text-white" ></i></button>'] );
-                    /*var index = "users"+i;
-                    $("#bodyUsers").append('<tr id="'+index+'" ></tr>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.nomPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.prenomPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.mailPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.nomRole+'</td>');
-                    $("#"+index).append('<td class="align-middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button></td>');
-                    i = i + 1;*/
+                        '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteDecla" data-idecla="'+this.idHoraire+'"><i class="fas fa-trash text-white" ></i></button>'] );
                 });
             },
             error : function(resultat, statut, erreur){

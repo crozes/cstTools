@@ -29,6 +29,7 @@
             </div>
             <div class="modal-body">
                 <p>Voulez-vous vraiment supprimer l'utilisateur ?</p>
+                <p><small class="text-danger">Attention la suppression d'un utilisateur entrainera aussi une supression de ses déclarations !</small></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>

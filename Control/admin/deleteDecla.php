@@ -14,17 +14,19 @@
             die('Erreur  : ' . $e->getMessage());
         }
 
-        $sql="INSERT INTO `TypeInter` (`idTypeInter`, `nomTypeInter`) VALUES (NULL, '".$data['addType']."');";
+
+        $sql="DELETE FROM `Horaire` WHERE `Horaire`.`idHoraire` = ".$data['idToDelete'].";";
 
         $req = $PDO->prepare($sql);
         $req->execute();
         $data = $req->fetch();
 
         if($data == false){
-            $data = '{"status" : "OK" , "msg" : "Type bien ajouté"}';
+            //$data = '{"status" : "OK" , "msg" : "horraire supprimé"}';
+            $data = '{"status" : "OK" , "msg" : "'.$sql.'"}';
         }
         else{
-            $data = '{"status" : "KO" , "msg" : "Erreur contacter admin"}';
+            $data = '{"status" : "KO" , "msg" : "Erreur"}';
         }
 
         $json  = json_encode($data);

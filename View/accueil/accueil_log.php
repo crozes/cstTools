@@ -7,11 +7,9 @@
             <div class="row">
                 <!--Grid column-->
                 <div class="col-md-6 text-white text-center text-md-left mt-xl-5 mb-5 animated fadeInLeft" >
-                        <h1 class="h1-responsive font-weight-bold mt-sm-5">Déclaration de vos horraires </h1>
+                        <h1 class="h1-responsive font-weight-bold mt-sm-5">Déclaration de vos horaires </h1>
                         <hr class="hr-light">
-                        <h6 class="mb-4 text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                        dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                        iste.</h6>
+                        <h6 class="mb-4 text-white">Outil permetant de délcarer et de garder en mémoire les horaires faites pour le club.</h6>
                         <a name="" id="" class="btn btn-danger" href="?page=horaire" role="button">GO !</a>
                 </div>
                 <!--Grid column-->
@@ -42,9 +40,7 @@
                 <div class="col-md-6 text-light text-right text-md-left mt-xl-5 mb-5" >
                     <h1 class="h1-responsive font-weight-bold mt-sm-5 text-right">Licences Automatiques</h1>
                     <hr class="hr-light">
-                    <h6 class="mb-4 text-light text-right">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem repellendus quasi fuga nesciunt
-                    dolorum nulla magnam veniam sapiente, fugiat! Commodi sequi non animi ea dolor molestiae
-                    iste.</h6>
+                    <h6 class="mb-4 text-light text-right">Outil qui permet d'automatiser les licences grâce à un lien google sheet /!\ le tableau doit etre dans le bon format afin que l'application web marche</h6>
                     <a name="" id="" class="btn btn-danger" href="?page=licence" role="button">GO !</a>
                 </div>
                 <!--Grid column-->

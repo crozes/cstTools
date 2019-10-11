@@ -14,14 +14,15 @@
             die('Erreur  : ' . $e->getMessage());
         }
 
-        $sql="INSERT INTO `TypeInter` (`idTypeInter`, `nomTypeInter`) VALUES (NULL, '".$data['addType']."');";
+
+        $sql="  DELETE FROM `LieuInter` WHERE `LieuInter`.`idLieuInter` = ".$data['idToDelete'].";";
 
         $req = $PDO->prepare($sql);
         $req->execute();
         $data = $req->fetch();
 
         if($data == false){
-            $data = '{"status" : "OK" , "msg" : "Type bien ajouté"}';
+            $data = '{"status" : "OK" , "msg" : "lieux supprimé"}';
         }
         else{
             $data = '{"status" : "KO" , "msg" : "Erreur contacter admin"}';
