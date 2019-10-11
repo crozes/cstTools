@@ -81,7 +81,7 @@
         type : 'GET',
         //dataType : 'json',
         success : function(json, statut){
-                var i = 1;
+                $('#usersTable').dataTable().fnClearTable();
                 jQuery.each(json, function() {
                     var date = $.format.date(this.dateDeclaPersonne+" 00:00:00", "dd MMM yyyy");
                     $('#usersTable').dataTable().fnAddData( [
@@ -91,14 +91,6 @@
                         this.nomRole,
                         date,
                         '<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button>'] );
-                    /*var index = "users"+i;
-                    $("#bodyUsers").append('<tr id="'+index+'" ></tr>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.nomPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.prenomPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.mailPersonne+'</td>');
-                    $("#"+index).append('<td class="autoSizing align-middle">'+this.nomRole+'</td>');
-                    $("#"+index).append('<td class="align-middle"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteUser" data-idecla="'+this.idPersonne+'"><i class="fas fa-trash text-white" ></i></button></td>');
-                    i = i + 1;*/
                 });
             },
             error : function(resultat, statut, erreur){
