@@ -81,7 +81,7 @@
 		var lien = $('#lienGoogle').val();
 		var idGoogleSheet = lien.split('/').slice(-2)[0];
 		// Definir le lien
-		var url = "http://78.249.92.32:5000/sheetID/"+idGoogleSheet;
+		var url = "http://91.171.187.83:5000/sheetID/"+idGoogleSheet;
 		$.get(url, function(data, status){
 			//alert("Status: " + status);
 			$('#pizza').hide();
