@@ -123,7 +123,7 @@
                 <div class="form-group">
                     <button type="submit" id="btn_submit" class="btn btn-danger btn-block"> Je créé mon compte </button>
                 </div> <!-- form-group// -->      
-                <p class="text-center">J'ai deja un compte ? <a href="?page=login">Je me connect</a> </p>                                                                 
+                <p class="text-center">J'ai deja un compte ? <a href="?page=login">Je me connecte</a> </p>                                                                 
             </form>
         </article>
     </div> 
