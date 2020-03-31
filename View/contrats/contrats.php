@@ -9,7 +9,7 @@
         <p class="lead">Outils permettant de générer automatique un contrat de travail via un formulaire</p>
     </div>
 </div>
-<div class="container">
+<div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
     <div class="row">
         <div class="col-md-12">
             <form id="newContrat" name="newContrat" action="Control/contrats/genContrat.php" method="post" target="_blank" accept-charset="UTF-8">
@@ -107,6 +107,14 @@
                             <small id="helpId" class="form-text text-muted">jj/mm/aaaa</small>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="nbHeure">Nombre d'heures par mois</label>
+                            <input type="time"
+                                class="form-control" name="nbHeure" id="nbHeure" aria-describedby="helpId" placeholder="12:00">
+                            <small id="helpId" class="form-text text-muted">hh:mm</small>
+                        </div>
+                    </div>
                 </div>        
             </form>            
         </div>                
@@ -136,7 +144,8 @@
         var nni = $("#nni").val();
         var debutContrat = $("#debutContrat").val();
         var finContrat = $("#finContrat").val();
-        var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat;
+        var nbHeure = $("#nbHeure").val();
+        var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&nbHeure="+nbHeure;
         window.open(path,'_blank'); 
     }
 </script>

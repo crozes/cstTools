@@ -22,6 +22,7 @@
     $nni = $_GET["nni"];
     $dateDebut = $_GET["debutContrat"];
     $dateFin = $_GET["finContrat"];
+    $nbHeure = $_GET["nbHeure"];
 
     // Instanciation de la classe dérivée
     $pdf = new PDF();
@@ -165,7 +166,7 @@
     $pdf->SetFont('RobotoReg','',10);
     $pdf->Cell(38,6,'1.  Le salarié effectuera',0,0);
     $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(18,6,'20 heures',0,0);
+    $pdf->Cell(18,6,$nbHeure.' heures',0,0);
     $pdf->SetFont('RobotoReg','',10);
     $pdf->Cell(0,6,'par mois temps d’habillage et déshabillage inclus.',0,1);
     $pdf->Cell(0,10,'2.  Il pourra intervenir sur les créneaux suivants :',0,1);
