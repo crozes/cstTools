@@ -1,5 +1,5 @@
 <?php
-function getFullHours(){
+    function getFullHours(){
         global $month;
         global $year;
         include '../all/log_db.php';
