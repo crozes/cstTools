@@ -1,14 +1,22 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="nav" id="navbarSupportedContent">
-        <li class="nav-item">
-            <a id="navbarSupportedContent" class="nav-link" href="?page=licence">Licence Auto</a>
-        </li>
+        <?php 
+            if($_SESSION['Auth'][0]->valueRole>=2){
+                echo '  <li class="nav-item">
+                            <a id="navbarSupportedContent" class="nav-link" href="?page=licence">Licence Auto</a>
+                        </li> ';
+            }
+        ?>
         <li class="nav-item">
             <a id="navbarSupportedContent" class="nav-link" href="?page=horaire">Déclaration Horaire</a>
         </li>
         <?php
-            if($_SESSION['Auth'][0]->nomRole=="Administrateur"){
-                echo '  <li class="nav-item">
+            if($_SESSION['Auth'][0]->valueRole>=3){
+                echo '  
+                        <li class="nav-item">
+                            <a id="navbarSupportedContent" class="nav-link" href="?page=contrats">Contrats</a>
+                        </li>
+                        <li class="nav-item">
                              <a id="navbarSupportedContent" class="nav-link" href="?page=admin">Administration</a>
                         </li>';
             }
