@@ -1,9 +1,4 @@
-<?php
-    if($_SESSION['Auth'][0]->valueRole<2){
-        header('Location:?page=accueil');
-    }
-?>
-	<div class="jumbotron jumbotron-fluid bg-danger text-white">
+    <div class="jumbotron jumbotron-fluid bg-danger text-white">
 		<div class="container">
 			<h1 class="display-3">Auto-Licenciement</h1>
 			<p class="lead">Licenciement automatique via formulaire Google-Sheet</p>

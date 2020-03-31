@@ -1,9 +1,5 @@
 <?php
     include "Control/admin/getInfo.php";
-
-    if($_SESSION['Auth'][0]->valueRole<3){
-        header('Location:?page=accueil');
-    }
 ?>
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
 	<div class="container">
