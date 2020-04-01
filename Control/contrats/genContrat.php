@@ -123,8 +123,16 @@
     $pdf->Cell(0,8,'ARTICLE 2 - Objet du contrat','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'1.  Le salarié est engagé par l’association club de sauvetage toulousain pour occuper un emploi éducateur sportif à',0,1);
-    $pdf->Cell(0,6,'     durée déterminée.',0,1);
+    $pdf->Cell(148,6,'1.  Le salarié est engagé par l’association club de sauvetage toulousain pour occuper un emploi',0,0);
+    $pdf->SetFont('RobotoTitre','',10);
+    if($type == 'entraineur') {
+        $pdf->Cell(0,6,'éducateur sportif',0,1);
+    }
+    else {
+        $pdf->Cell(0,6,'formateur',0,1);
+    }
+    $pdf->SetFont('RobotoReg','',10);
+    $pdf->Cell(0,6,'     à durée déterminée.',0,1);
     $pdf->Cell(0,6,'2.  Le salarié exercera ses fonctions sous l’autorité et dans le cadre des instructions données par le comité directeur',0,1);
     $pdf->Cell(0,6,'     du club ou toute autre personne désignée à cet effet.',0,1);
     $pdf->Ln(5);
