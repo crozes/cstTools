@@ -231,7 +231,7 @@
     $pdf->Cell(0,8,'ARTICLE 6 - Lieu de travail','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(64,6,'1.  A titre informatif, le lieu de travail est fixé',0,0);
+    $pdf->Cell(68,6,'1.  A titre informatif, le lieu de travail est fixé',0,0);
     if($type == 'entraineur') {
         $pdf->Cell(0,6,' aux piscines Pech David, Léo Lagrange de Toulouse ainsi que sur le plan d’eau',0,1); 
         $pdf->Cell(0,6,'     de La Ramée sur la commune de Tournefeuille.',0,1); 
