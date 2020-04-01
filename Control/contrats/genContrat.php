@@ -278,7 +278,7 @@
     $pdf->Cell(0,8,'ARTICLE 7 - Rémunération','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(151,6,'1.  En contrepartie de son travail, le salarié percevra un salaire net calculé sur une base horaire de',0,0);
+    $pdf->Cell(150,6,'1.  En contrepartie de son travail, le salarié percevra un salaire net calculé sur une base horaire de',0,0);
     if($type == 'entraineur') {
         $pdf->SetFont('RobotoTitre','',10);
         $pdf->Cell(0,6,'15 euros.',0,1);
