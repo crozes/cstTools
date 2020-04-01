@@ -115,7 +115,15 @@
     $pdf->Cell(0,8,'ARTICLE 1 - Engagement et qualification','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'1.  Le salarié, qui se déclare libre de tout engagement, est employé comme éducateur sportif.',0,1);
+    $pdf->Cell(116,6,'1.  Le salarié, qui se déclare libre de tout engagement, est employé comme',0,0);
+    $pdf->SetFont('RobotoTitre','',10);
+    if($type == 'entraineur') {
+        $pdf->Cell(0,6,'éducateur sportif.',0,1);
+    }  
+    else {
+        $pdf->Cell(0,6,'formateur.',0,1);
+    }
+    $pdf->SetFont('RobotoReg','',10);
     $pdf->Cell(0,6,'2.  Le salarié déclare être éducateur sportif, indispensable à l’exercice des fonctions pour lesquelles il est engagé.',0,1);
     $pdf->Ln(5);
     // Article 2
