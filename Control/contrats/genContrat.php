@@ -154,12 +154,21 @@
     $pdf->Cell(0,8,'ARTICLE 4 - Fonctions du salarié','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'1.  Le salarié assurera toutes les fonctions attachées à sa qualification d’éducateur sportif',0,1);
-    $pdf->Cell(0,6,'        • Animation des séances de piscine',0,1);
-    $pdf->Cell(0,6,'        • Participation aux réunions pédagogiques',0,1);
-    $pdf->Cell(0,6,'        • Participation aux réunions d’inscriptions et d’informations pour les parents',0,1);
-    $pdf->Cell(0,6,'        • Participation à l’encadrement des stages de natation et d’entrainement côtiers et sportifs',0,1);
-    $pdf->Cell(0,6,'        • Participation à l’accompagnement des nageurs en compétition',0,1);
+    $pdf->Cell(109,6,'1.  Le salarié assurera toutes les fonctions attachées à sa qualification',0,0);
+    if($type == "entraineur") {
+        $pdf->Cell(0,6,'d’éducateur sportif',0,1);
+        $pdf->Cell(0,6,'        • Animation des séances de piscine',0,1);
+        $pdf->Cell(0,6,'        • Participation aux réunions pédagogiques',0,1);
+        $pdf->Cell(0,6,'        • Participation aux réunions d’inscriptions et d’informations pour les parents',0,1);
+        $pdf->Cell(0,6,'        • Participation à l’encadrement des stages de natation et d’entrainement côtiers et sportifs',0,1);
+        $pdf->Cell(0,6,'        • Participation à l’accompagnement des nageurs en compétition',0,1);
+    }
+    else {
+        $pdf->Cell(0,6,'formateur',0,1);
+        $pdf->Cell(0,6,'        • Animation des séances de formations auxquelles il est qualifié,',0,1);
+        $pdf->Cell(0,6,'        • Participation aux réunions pédagogiques,',0,1);
+        $pdf->Cell(0,6,'        • Réalisation des documents administratifs avant et après les actions de formation.',0,1);
+    }
     $pdf->Cell(0,6,'2.  Il est cependant convenu que cette liste n’est pas exhaustive ou limitative, de sorte que le salarié pourra être amené',0,1);
     $pdf->Cell(0,6,'     à effectuer des tâches annexes ou accessoires.',0,1);
     $pdf->AddPage();
