@@ -23,6 +23,7 @@
     $dateDebut = $_GET["debutContrat"];
     $dateFin = $_GET["finContrat"];
     $nbHeure = $_GET["nbHeure"];
+    $type = $_GET["type"];
 
     // Instanciation de la classe dérivée
     $pdf = new PDF();
@@ -39,7 +40,10 @@
     $pdf->Cell(0,0,'CONTRAT DE TRAVAIL',0,1,'C');
     $pdf->Ln(8);
     $pdf->SetFont('Roboto-Black','',20);
-    $pdf->Cell(0,0,'EDUCATEUR SPORTIF A DUREE DETERMINEE',0,1,'C');
+    if($type == 'entraineur')
+        $pdf->Cell(0,0,'EDUCATEUR SPORTIF A DUREE DETERMINEE',0,1,'C');
+    else
+        $pdf->Cell(0,0,'FORMATEUR A DUREE DETERMINEE',0,1,'C');
     $pdf->Ln(10);
     // Club
     $pdf->SetFont('RobotoItal','',10);
@@ -164,43 +168,61 @@
     $pdf->Cell(0,8,'ARTICLE 5 - Durée du travail','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(38,6,'1.  Le salarié effectuera',0,0);
-    $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(18,6,$nbHeure.' heures',0,0);
-    $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'par mois temps d’habillage et déshabillage inclus.',0,1);
-    $pdf->Cell(0,10,'2.  Il pourra intervenir sur les créneaux suivants :',0,1);
-    $w = array(31, 31, 33, 33, 31, 31);
-    $jour = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
-    for($i=0; $i<count($jour); $i++) {
-        $pdf->Cell($w[$i],8,$jour[$i],1,0,'C');
+    $i = 1;
+    if($type == 'entraineur') {
+        $pdf->Cell(38,6,$i.'.  Le salarié effectuera',0,0);
+        $i++;
+        $pdf->SetFont('RobotoTitre','',10);
+        $pdf->Cell(18,6,$nbHeure.' heures',0,0);
+        $pdf->SetFont('RobotoReg','',10);
+        $pdf->Cell(0,6,'par mois temps d’habillage et déshabillage inclus.',0,1);
+        $pdf->Cell(0,10,$i.'.  Il pourra intervenir sur les créneaux suivants :',0,1);
+        $i++;
+        $w = array(31, 31, 33, 33, 31, 31);
+        $jour = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi");
+        for($i=0; $i<count($jour); $i++) {
+            $pdf->Cell($w[$i],8,$jour[$i],1,0,'C');
+        }
+        $pdf->Ln();
+        $pdf->Cell($w[0],8,"",1,0,'C');
+        $pdf->Cell($w[1],8,"",1,0,'C');
+        $pdf->Cell($w[2],8,"6h45 – 8h30",1,0,'C');
+        $pdf->Cell($w[3],8,"",1,0,'C');
+        $pdf->Cell($w[4],8,"6h45 – 8h30",1,0,'C');
+        $pdf->Cell($w[5],8,"",1,0,'C');
+        $pdf->Ln();
+        $pdf->Cell($w[0],8,"",1,0,'C');
+        $pdf->Cell($w[1],8,"",1,0,'C');
+        $pdf->Cell($w[2],8,"13h30 – 15h30",1,0,'C');
+        $pdf->Cell($w[3],8,"",1,0,'C');
+        $pdf->Cell($w[4],8,"",1,0,'C');
+        $pdf->Cell($w[5],8,"",1,0,'C');
+        $pdf->Ln();
+        $pdf->Cell($w[0],8,"21h00 – 23h00",1,0,'C');
+        $pdf->Cell($w[1],8,"20h30 – 22h45",1,0,'C');
+        $pdf->Cell($w[2],8,"20h30 – 22h45",1,0,'C');
+        $pdf->Cell($w[3],8,"",1,0,'C');
+        $pdf->Cell($w[4],8,"",1,0,'C');
+        $pdf->Cell($w[5],8,"18h00 – 21h00",1,0,'C');
+        $pdf->Ln();
+        $pdf->Ln();
     }
-    $pdf->Ln();
-    $pdf->Cell($w[0],8,"",1,0,'C');
-    $pdf->Cell($w[1],8,"",1,0,'C');
-    $pdf->Cell($w[2],8,"6h45 – 8h30",1,0,'C');
-    $pdf->Cell($w[3],8,"",1,0,'C');
-    $pdf->Cell($w[4],8,"6h45 – 8h30",1,0,'C');
-    $pdf->Cell($w[5],8,"",1,0,'C');
-    $pdf->Ln();
-    $pdf->Cell($w[0],8,"",1,0,'C');
-    $pdf->Cell($w[1],8,"",1,0,'C');
-    $pdf->Cell($w[2],8,"13h30 – 15h30",1,0,'C');
-    $pdf->Cell($w[3],8,"",1,0,'C');
-    $pdf->Cell($w[4],8,"",1,0,'C');
-    $pdf->Cell($w[5],8,"",1,0,'C');
-    $pdf->Ln();
-    $pdf->Cell($w[0],8,"21h00 – 23h00",1,0,'C');
-    $pdf->Cell($w[1],8,"20h30 – 22h45",1,0,'C');
-    $pdf->Cell($w[2],8,"20h30 – 22h45",1,0,'C');
-    $pdf->Cell($w[3],8,"",1,0,'C');
-    $pdf->Cell($w[4],8,"",1,0,'C');
-    $pdf->Cell($w[5],8,"18h00 – 21h00",1,0,'C');
-    $pdf->Ln();
-    $pdf->Ln();
-    $pdf->Cell(0,6,'3.  Il est expressément convenu que cette répartition pourra être modifiée en cas de surcroit temporaire d’activité ou',0,1);
+    else {
+        $pdf->Cell(37,6,$i.'.  Le salarié effectuera',0,0);
+        $i++;
+        $pdf->SetFont('RobotoTitre','',10);
+        $pdf->Cell(15,6,'7 heures',0,0);
+        $pdf->SetFont('RobotoReg','',10);
+        $pdf->Cell(0,6,'par journée de formation. La récurrence peut varier d’un mois à l’autre en fonction des',0,1);
+        $pdf->Cell(67,6,'     besoins ou de la demande sans excéder',0,0);
+        $pdf->SetFont('RobotoTitre','',10);
+        $pdf->Cell(0,6,'35 h par semaine.',0,1);
+        $pdf->SetFont('RobotoReg','',10);
+    }
+    $pdf->Cell(0,6,$i.'.  Il est expressément convenu que cette répartition pourra être modifiée en cas de surcroit temporaire d’activité ou',0,1);
     $pdf->Cell(0,6,'     d’absence d’un ou plusieurs salariés, de déplacement d’un cours ou de vacances scolaires.',0,1);
-    $pdf->Cell(0,6,'4.  En fonction des nécessités de service (préparation à des compétitions, stages….) et conformément aux dispositions de',0,1);
+    $i++;
+    $pdf->Cell(0,6,$i.'.  En fonction des nécessités de service (préparation à des compétitions, stages….) et conformément aux dispositions de',0,1);
     $pdf->Cell(0,6,'     l’article L3123-14 du code du travail, le salarié pourra être amené à effectuer des heures supplémentaires à la',0,1);
     $pdf->Cell(0,6,'     durée de travail citée en annexe dans la limite du tiers de la durée de travail de base.',0,1);
     $pdf->Ln(5);
@@ -209,8 +231,15 @@
     $pdf->Cell(0,8,'ARTICLE 6 - Lieu de travail','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'1.  A titre informatif, le lieu de travail est fixé aux piscines Pech David, Léo Lagrange de Toulouse ainsi que sur le plan',0,1);
-    $pdf->Cell(0,6,'     d’eau de La Ramée sur la commune de Tournefeuille.',0,1);
+    $pdf->Cell(64,6,'1.  A titre informatif, le lieu de travail est fixé',0,0);
+    if($type == 'entraineur') {
+        $pdf->Cell(0,6,' aux piscines Pech David, Léo Lagrange de Toulouse ainsi que sur le plan d’eau',0,1); 
+        $pdf->Cell(0,6,'     de La Ramée sur la commune de Tournefeuille.',0,1); 
+    }
+    else {
+        $pdf->Cell(0,6,'à la salle de réunion, Allée des sports à Ramonville Saint-Agne.',0,1); 
+    }
+    
     $pdf->Cell(0,6,'2.  Il est convenu que le lieu peut être modifié ponctuellement en cas de surcroît ponctuel d’activité, d’absence d’un ou',0,1);
     $pdf->Cell(0,6,'     plusieurs salariés, de déplacement de cours, de problème technique sur la piscine, vacances scolaires.',0,1);
     $pdf->Cell(0,6,'     La liste n’est pas exhaustive..',0,1);
@@ -224,7 +253,19 @@
     $pdf->Cell(0,8,'ARTICLE 7 - Rémunération','B',1);
     $pdf->Ln(1);
     $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,'1.  En contrepartie de son travail, le salarié percevra un salaire net calculé sur une base horaire de 15 euros.',0,1);
+    $pdf->Cell(151,6,'1.  En contrepartie de son travail, le salarié percevra un salaire net calculé sur une base horaire de',0,0);
+    if($type == 'entraineur') {
+        $pdf->SetFont('RobotoTitre','',10);
+        $pdf->Cell(0,6,'15 euros.',0,1);
+        $pdf->SetFont('RobotoReg','',10);
+    }
+    else {
+        $pdf->SetFont('RobotoTitre','',10);
+        $pdf->Cell(17,6,'110 euros',0,0);
+        $pdf->SetFont('RobotoReg','',10);
+        $pdf->Cell(150,6,'par jour de',0,1);
+        $pdf->Cell(0,6,'     formation. Une journée de bénévolat à titre de solidarité sera réalisée.',0,1);
+    }
     $pdf->Ln(5);
     // Article 8
     $pdf->SetFont('RobotoTitre','',12);

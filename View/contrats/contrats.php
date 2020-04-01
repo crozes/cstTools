@@ -10,6 +10,18 @@
     </div>
 </div>
 <div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="typeContrat" id="entraineur" value="entraineur" checked>
+        <label class="form-check-label" for="entraineur">
+            Entraineur sportif
+        </label>
+    </div>
+    <div class="form-check mb-4">
+        <input class="form-check-input" type="radio" name="typeContrat" id="formateur" value="formateur">
+        <label class="form-check-label" for="formateur">
+            Formateur
+        </label>
+    </div>
     <div class="row">
         <div class="col-md-12">
             <form id="newContrat" name="newContrat" action="Control/contrats/genContrat.php" method="post" target="_blank" accept-charset="UTF-8">
@@ -145,7 +157,8 @@
         var debutContrat = $("#debutContrat").val();
         var finContrat = $("#finContrat").val();
         var nbHeure = $("#nbHeure").val();
-        var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&nbHeure="+nbHeure;
+        var type = $('input[name="typeContrat"]:checked').val();
+        var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&nbHeure="+nbHeure+"&type="+type;
         window.open(path,'_blank'); 
     }
 </script>
