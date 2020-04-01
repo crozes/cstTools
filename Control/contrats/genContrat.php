@@ -436,5 +436,5 @@
     $pdf->Cell(0,3,'* "Bon pour accusé de réception".',0,1);
     $pdf->SetFont('RobotoReg','',10);*/
     // Génération PDF
-    $pdf->Output('Coucou_Contrat.pdf','I');
+    $pdf->Output($nom.'_Contrat.pdf','I');
     
