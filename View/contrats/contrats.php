@@ -10,16 +10,12 @@
     </div>
 </div>
 <div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
-    <div class="form-check">
-        <input class="form-check-input" type="radio" name="typeContrat" id="entraineur" value="entraineur" checked>
-        <label class="form-check-label" for="entraineur">
-            Entraineur sportif
+    <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+        <label class="btn btn-secondary active">
+            <input type="radio" name="typeContrat" id="entraineur" checked> Entraineur sportif
         </label>
-    </div>
-    <div class="form-check mb-4">
-        <input class="form-check-input" type="radio" name="typeContrat" id="formateur" value="formateur">
-        <label class="form-check-label" for="formateur">
-            Formateur
+        <label class="btn btn-secondary">
+            <input type="radio" name="typeContrat" id="formateur"> Formateur
         </label>
     </div>
     <div class="row">
