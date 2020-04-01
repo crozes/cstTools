@@ -153,7 +153,7 @@
         var debutContrat = $("#debutContrat").val();
         var finContrat = $("#finContrat").val();
         var nbHeure = $("#nbHeure").val();
-        var type = $('input[name="typeContrat"]:checked').val();
+        var type = $('input[name="typeContrat"]:checked').attr('id');
         var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&nbHeure="+nbHeure+"&type="+type;
         window.open(path,'_blank'); 
     }
