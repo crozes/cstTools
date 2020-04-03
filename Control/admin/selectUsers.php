@@ -1,5 +1,5 @@
 <?php
-    header('Content-type: application/json');
+    header('Content-type: application/json; charset=utf-8');
 
     include '../all/log_db.php';
     try{
