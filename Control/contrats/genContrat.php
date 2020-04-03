@@ -83,7 +83,8 @@
     $pdf->Cell(10,6,'',0,0);
     $pdf->Cell(13,6,'Né[e] le',0,0);
     $pdf->SetFont('RobotoTitre','',11);
-    $pdf->Cell(23,6,$naissance,0,0);
+    $date = new DateTime($naissance);
+    $pdf->Cell(23,6,date_format($date,'d/m/Y'),0,0);
     $pdf->SetFont('RobotoReg','',10);
     $pdf->Cell(4,6,'à',0,0);
     $pdf->SetFont('RobotoTitre','',11);
