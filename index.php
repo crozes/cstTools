@@ -10,7 +10,7 @@
     }catch(Exception $e){
         die('Erreur  : ' . $e->getMessage());
     }
-
+    include 'Control/utils.php';
     include 'View/header/header.php';
     include 'View/menu/menu.php';
     

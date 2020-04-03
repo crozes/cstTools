@@ -11,11 +11,11 @@
 </div>
 <div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-        <label class="btn btn-secondary active">
-            <input type="radio" name="typeContrat" id="entraineur" checked> Entraineur sportif
+        <label class="btn btn-secondary active" id="entraineurDisp">
+            <input type="radio" name="typeContrat" id="entraineur" checked>Entraineur sportif
         </label>
-        <label class="btn btn-secondary">
-            <input type="radio" name="typeContrat" id="formateur"> Formateur
+        <label class="btn btn-secondary" id="formateurDisp">
+            <input type="radio" name="typeContrat" id="formateur">Formateur
         </label>
     </div>
     <div class="row">
@@ -115,7 +115,7 @@
                             <small id="helpId" class="form-text text-muted">jj/mm/aaaa</small>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4" id="nbrHeureDisplay">
                         <div class="form-group">
                             <label for="nbHeure">Nombre d'heures par mois</label>
                             <input type="time"
@@ -137,6 +137,25 @@
 </div>
 
 <script>
+    $( "#entraineurDisp" ).click(function() {
+        majForm();
+    });
+    $( "#formateurDisp" ).click(function() {
+        majForm();
+    }); 
+
+    function majForm(){
+        var entraineurButton = $('#entraineur');
+        var formateurButton = $('#formateur');
+        var nbrHeureDisplay = $('#nbrHeureDisplay');
+        if(entraineurButton.is(':checked')) {
+            nbrHeureDisplay.show();
+        }
+        else {
+            nbrHeureDisplay.hide();
+        }
+    }
+
     function genPdf(){
         var nom = $("#nom").val();
         var prenom = $("#prenom").val();

@@ -1,7 +1,7 @@
 <?php
     include_once 'Control/all/log_db.php';
 
-    function createAccount($nom,$prenom,$mail,$password){
+    function createAccount($nom,$prenom,$mail,$password,$dateNaissance=null,$villeNaissance=null,$departementNaissance=null,$paysNaissance=null,$adresse=null,$adresseSuite=null,$codePostal=null,$ville=null,$nni=null){
         global $DB_serveur;
         global $DB_base;
         global $DB_utilisateur;
@@ -28,15 +28,15 @@
         $dateActu = date('Y\/m\/d');
 
         if(count($data)==0){
-            $sql_insert = '    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`, `dateDeclaPersonne`) 
-                    VALUES (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', \''.$dateActu.'\');';
-
-
+            $sql_insert = '    INSERT INTO `Personne`
+                    VALUES  (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', \''.$dateActu.'\', \''.($dateNaissance==''?null:$dateNaissance).'\', \''.ucwords($villeNaissance).'\', \''.ucwords($adresse).'\', \''.ucwords($adresseSuite).'\', \''.$codePostal.'\', \''.ucwords($ville).'\', \''.$nni.'\', \''.$departementNaissance.'\', \''.$paysNaissance.'\');';
+                        
+            error_log ($sql_insert);
             $req = $PDO->prepare($sql_insert);
-            $req->execute();
+            $result = $req->execute();
             $data = $req->fetch();
 
-            if($req>0){
+            if($result){
                 return 'OK';
             }
             else{

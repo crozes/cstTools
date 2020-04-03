@@ -27,7 +27,8 @@
         else{
             include_once "Control/account/addAccount.php";
             $_POST["password"] = strtoupper($_POST["password"]);
-            $ret = createAccount($_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["password"]);
+            //createAccount($nom,$prenom,$mail,$password,$dateNaissance,$villeNaissance,$departementNaissance,$paysNaissance,$adresse,$adresseSuite,$codePostal,$ville,$nni)
+            $ret = createAccount($_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["password"],$_POST["dateNaissance"],$_POST["villeNaissance"],$_POST["departement"],$_POST["pays"],$_POST["adresse"],$_POST["adresse2"],$_POST["codePostal"],$_POST["ville"],$_POST["nni"]);
             //$ret = $Auth->create($_POST);
             if($ret == 'OK'){
                 //header('Location:index.php?page=accueil');
@@ -74,7 +75,7 @@
     <div class="container mb-4">
         <?php echo $alert; ?>
         <div class="card bg-light">
-        <article class="card-body mx-auto" style="max-width: 1000px;">
+        <article class="card-body mx-auto" style="max-width: 1500px;">
             <h4 class="card-title mt-3 mb-3 text-center">Création de compte</h4>
             <!-- ?page=signin -->
             <form id="creationCompte" action="?page=enregistrer" method="POST">
@@ -82,47 +83,106 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="nom" id="nom" class="form-control" placeholder="Nom" type="text" required>
+                    <input name="nom" id="nom" class="form-control" placeholder="Nom*" type="text" required>
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input name="prenom" id="prenom" class="form-control" placeholder="Prénom" type="text" required>
+                    <input name="prenom" id="prenom" class="form-control" placeholder="Prénom*" type="text" required>
                 </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input id="email" name="email" class="form-control" placeholder="Adresse mail" type="email" required>
+                    <input id="email" name="email" class="form-control" placeholder="Adresse mail*" type="email" required>
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
                     </div>
-                    <input name="email2" id="email2" class="form-control" placeholder="Répéter l'adresse mail" type="email" required>
+                    <input name="email2" id="email2" class="form-control" placeholder="Répéter l'adresse mail*" type="email" required>
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-baby-carriage"></i> </span>
                     </div>
-                    <input id="password" name="password" class="form-control" placeholder="Mot de passe" type="password" required>
+                    <input id="dateNaissance" name="dateNaissance" class="form-control" placeholder="Date de naissance" type="date">
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        <span class="input-group-text"> <i class="fas fa-baby-carriage"></i> </span>
                     </div>
-                    <input id="password2" name="password2" class="form-control" placeholder="Répéter le mot de passe" type="password" required>
+                    <input id="villeNaissance" name="villeNaissance" class="form-control" placeholder="Ville de naissance" type="text">
                 </div> <!-- form-group// --> 
-                <div class="form-check mb-2">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-baby-carriage"></i> </span>
+                    </div>
+                    <select name="departement" id="departement" class="form-control"><?php echo getOptionDepartement();?></select>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-baby-carriage"></i> </span>
+                    </div>
+                    <select name="pays" id="pays" class="form-control"><?php echo getOptionPays();?></select>
+                </div> <!-- form-group// --> 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-house-user"></i> </span>
+                    </div>
+                    <input id="adresse" name="adresse" class="form-control" placeholder="Adresse" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-house-user"></i> </span>
+                    </div>
+                    <input id="adresse2" name="adresse2" class="form-control" placeholder="Adresse Suite" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-house-user"></i> </span>
+                    </div>
+                    <input id="codePostal" name="codePostal" class="form-control" placeholder="Code Postal" type="text">
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fas fa-house-user"></i> </span>
+                    </div>
+                    <input id="vill" name="ville" class="form-control" placeholder="Ville" type="text">
+                </div> <!-- form-group// -->
+                <hr>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password" name="password" class="form-control" placeholder="Mot de passe*" type="password" required>
+                </div> <!-- form-group// -->
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input id="password2" name="password2" class="form-control" placeholder="Répéter le mot de passe*" type="password" required>
+                </div> <!-- form-group// -->
+                <hr>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                    </div>
+                    <input id="nni" name="nni" class="form-control" placeholder="Numéro National d'Identification" type="text">
+                </div> <!-- form-group// -->
+
+                <!--<div class="form-check mb-2">
                     <input class="form-check-input" type="checkbox" value="ok" id="checkBox">
                     <label class="form-check-label" for="checkbox">
                         J'ai pris connaissance de ...
                     </label>
-                </div>
+                </div>-->
+
                 <div class="form-group">
                     <button type="submit" id="btn_submit" class="btn btn-danger btn-block"> Je créé mon compte </button>
-                </div> <!-- form-group// -->      
+                </div> <!-- form-group// -->
+                <small id="helpId" class="form-text text-muted mb-4">* donnée obigatoire</small>    
                 <p class="text-center">J'ai deja un compte ? <a href="?page=login">Je me connecte</a> </p>                                                                 
             </form>
         </article>
@@ -156,6 +216,10 @@
                 password2: {
                     required: true,
                     equalTo: "#password"
+                },
+                nni: {
+                    minlength: 15,
+                    maxlength: 15
                 }
             },
             messages: {
