@@ -206,7 +206,7 @@
             $("#code_postal").val(dataReturned['codePostalPersonne']);
             $("#ville").val(dataReturned['villePersonne']);
             $("#nni").val(dataReturned['nniPersonne']);
-            $("#departement").val((dataReturned['idDepartement']==""?"NULL":dataReturned['idDepartement']));
+            $("#departement").val(dataReturned['idDepartement']);
         })
         .fail(function() {
             console.log("Error");
