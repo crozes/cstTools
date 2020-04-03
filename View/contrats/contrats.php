@@ -26,7 +26,16 @@
         <div class="col-md-12">
             <form id="newContrat" name="newContrat" action="Control/contrats/genContrat.php" method="post" target="_blank" accept-charset="UTF-8">
                 <div class="row">
-                <div class="col-md-4">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="sexe">Sexe</label>
+                            <select id="sexe" name="sexe" class="form-control">
+                                <option value="Monsieur">Monsieur</option>
+                                <option value="Madame">Madame</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
                         <div class="form-group">
                             <label for="nom">Nom</label>
                             <input type="text" class="form-control" id="nom" aria-describedby="nom" placeholder="Nom" value="" name="nom" require>
@@ -36,15 +45,6 @@
                         <div class="form-group">
                             <label for="prenom">Prénom</label>
 							<input type="text" class="form-control" id="prenom" aria-describedby="prenom" placeholder="Prénom" value="" name="prenom">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="sexe">Sexe</label>
-                            <select id="sexe" name="sexe" class="form-control">
-                                <option value="Monsieur">Monsieur</option>
-                                <option value="Madame">Madame</option>
-                            </select>
                         </div>
                     </div>
                     <div class="col-md-3">
@@ -206,7 +206,7 @@
             $("#code_postal").val(dataReturned['codePostalPersonne']);
             $("#ville").val(dataReturned['villePersonne']);
             $("#nni").val(dataReturned['nniPersonne']);
-            $("#departement").val(dataReturned['idDepartement']);
+            $("#departement").val((dataReturned['idDepartement']==""?"null":dataReturned['idDepartement']));
         })
         .fail(function() {
             console.log("Error");
