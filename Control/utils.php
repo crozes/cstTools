@@ -7,7 +7,7 @@ function getOptionPays(){
     $data = $req->fetchAll();
     $option = "";
     foreach( $data as $element){
-        $option .= "<option value='".$element->idPays."'".($element->nomFrançaisPays == "France"?"selected":"").">".$element->nomFrançaisPays."</option>";
+        $option .= "<option value='".$element->idPays."'".($element->nomFrPays == "France"?"selected":"").">".$element->nomFrPays."</option>";
     }
     return $option;
 }
