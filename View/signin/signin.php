@@ -108,6 +108,7 @@
                         <span class="input-group-text"> <i class="fas fa-baby-carriage"></i> </span>
                     </div>
                     <input id="dateNaissance" name="dateNaissance" class="form-control" placeholder="Date de naissance" type="date">
+                    <small id="helpId" class="form-text text-muted ml-2">aaaa/mm/jj</small>    
                 </div> <!-- form-group// -->
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
@@ -149,7 +150,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fas fa-house-user"></i> </span>
                     </div>
-                    <input id="vill" name="ville" class="form-control" placeholder="Ville" type="text">
+                    <input id="ville" name="ville" class="form-control" placeholder="Ville" type="text">
                 </div> <!-- form-group// -->
                 <hr>
                 <div class="form-group input-group">
@@ -193,67 +194,71 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
 <script>
-        $("#creationCompte").validate({
-            rules: {
-                nom: {
-                    required: true
-                },
-                prenom: {
-                    required: true
-                },
-                email: {
-                    required: true,
-                    email: true
-                },
-                email2: {
-                    required: true,
-                    equalTo: "#email"
-                },
-                password: {
-                    required: true,
-                    minlength: 8
-                },
-                password2: {
-                    required: true,
-                    equalTo: "#password"
-                },
-                nni: {
-                    minlength: 15,
-                    maxlength: 15
-                }
+    $("#creationCompte").validate({
+        rules: {
+            nom: {
+                required: true
             },
-            messages: {
-                nom: {
-                    required: "Veuillez rentrer votre nom"
-                },
-                prenom: {
-                    required: "Veuillez rentrer votre prénom"
-                },
-                email: {
-                    required: "Veuillez rentrer une adresse mail valide",
-                    email:"Veuillez rentrer une adresse mail valide"
-                },
-                email2: {
-                    required: "Veuillez reécrire votre adresse mail",
-                    equalTo: "L'adresse mail ne correspond pas à la précedente"
-                },
-                password: {
-                    required: "Veuillez rentrer votre mot de passe",
-                    minlength: "Le password doit faire minimum 8 caractères"
-                },
-                password2: {
-                    required: "Veuillez reécrire votre mot de passe",
-                    equalTo: "Le mot de passe ne correspond pas au précedent"
-                }
+            prenom: {
+                required: true
             },
-            //wrapper: 'div',
-            errorPlacement: function(label, element) {
-                //element.addClass('is-invalid');
-                label.addClass('invalid-feedback');
-                label.insertAfter(element);
+            email: {
+                required: true,
+                email: true
             },
-            /* success: function(label) {
-                label.removeClass("invalid-feedback").addClass("valid-feedback").text("Ok!");
-            } */
-        });
+            email2: {
+                required: true,
+                equalTo: "#email"
+            },
+            password: {
+                required: true,
+                minlength: 8
+            },
+            password2: {
+                required: true,
+                equalTo: "#password"
+            },
+            nni: {
+                minlength: 15,
+                maxlength: 15
+            }
+        },
+        messages: {
+            nom: {
+                required: "Veuillez rentrer votre nom"
+            },
+            prenom: {
+                required: "Veuillez rentrer votre prénom"
+            },
+            email: {
+                required: "Veuillez rentrer une adresse mail valide",
+                email:"Veuillez rentrer une adresse mail valide"
+            },
+            email2: {
+                required: "Veuillez reécrire votre adresse mail",
+                equalTo: "L'adresse mail ne correspond pas à la précedente"
+            },
+            password: {
+                required: "Veuillez rentrer votre mot de passe",
+                minlength: "Le password doit faire minimum 8 caractères"
+            },
+            password2: {
+                required: "Veuillez reécrire votre mot de passe",
+                equalTo: "Le mot de passe ne correspond pas au précedent"
+            }
+            nni: {
+                minlength: "Veuilez rentrer les 15 chiffres de votre nni",
+                maxlength: "Veuilez rentrer les 15 chiffres de votre nni"
+            }
+        },
+        //wrapper: 'div',
+        errorPlacement: function(label, element) {
+            //element.addClass('is-invalid');
+            label.addClass('invalid-feedback');
+            label.insertAfter(element);
+        },
+        /* success: function(label) {
+            label.removeClass("invalid-feedback").addClass("valid-feedback").text("Ok!");
+        } */
+    });
     </script>

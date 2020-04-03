@@ -18,22 +18,53 @@
 
         $sql_select = ' SELECT * 
                         FROM Personne p
-                        WHERE p.nomPersonne = "'.$nom.'"
-                        AND p.mailPersonne = "'.$mail.'"';
+                        WHERE p.nomPersonne = \'.$nom.\'
+                        AND p.mailPersonne = \'.$mail.\'
+                        AND p.prenomPersonne = \'.$prenom.\'';
         
         $req = $PDO->prepare($sql_select);
         $req->execute();
         $data = $req->fetchAll();
 
         $dateActu = date('Y\/m\/d');
-
         if(count($data)==0){
-            $sql_insert = '    INSERT INTO `Personne`
-                    VALUES  (NULL, \''.$nom.'\', \''.$prenom.'\', \''.$mail.'\', \''.$password.'\', \'1\', \''.$dateActu.'\', \''.($dateNaissance==''?null:$dateNaissance).'\', \''.ucwords($villeNaissance).'\', \''.ucwords($adresse).'\', \''.ucwords($adresseSuite).'\', \''.$codePostal.'\', \''.ucwords($ville).'\', \''.$nni.'\', \''.$departementNaissance.'\', \''.$paysNaissance.'\');';
+            $sql_insert = ' INSERT INTO `Personne` (idPersonne, nomPersonne, prenomPersonne, mailPersonne, mdpPersonne, idRole, dateDeclaPersonne, dateNaissancePersonne, villeNaissancePersonne, adressePersonne, adresseSuitePersonne, codePostalPersonne, villePersonne, nniPersonne, idDepartement, idPays)
+                            VALUES  (NULL, 
+                                    :nom,
+                                    :prenom, 
+                                    :mail, 
+                                    :password, 
+                                    1, 
+                                    :dateDecla,
+                                    :dateNaissance, 
+                                    :villeNaissance, 
+                                    :adresse, 
+                                    :adresseSuite, 
+                                    :codePostal, 
+                                    :ville, 
+                                    :nni, 
+                                    :depNaissance, 
+                                    :paysNaissance);';
                         
-            error_log ($sql_insert);
+            //error_log ($sql_insert);
             $req = $PDO->prepare($sql_insert);
-            $result = $req->execute();
+            $arrayToExe = [ ':nom' => $nom,
+                            ':prenom' => $prenom,
+                            ':mail' => $mail,
+                            ':password' => $password,
+                            ':dateDecla' => date('Y/m/j'),
+                            ':dateNaissance' => (empty($dateNaissance)?NULL:$dateNaissance),
+                            ':villeNaissance' => (empty($villeNaissance)?NULL:ucwords($villeNaissance)),
+                            ':adresse' => (empty($adresse)?NULL:ucwords($adresse)),
+                            ':adresseSuite' => (empty($adresseSuite)?NULL:ucwords($adresseSuite)),
+                            ':codePostal' => (empty($codePostal)?NULL:$codePostal),
+                            ':ville' => (empty($ville)?NULL:ucwords($ville)),
+                            ':nni' => (empty($nni)?NULL:$nni),
+                            ':depNaissance' => ($departementNaissance=='NULL'?NULL:$departementNaissance),
+                            ':paysNaissance' => ($paysNaissance=='NULL'?NULL:$paysNaissance)
+                        ];
+            //print_r($arrayToExe);
+            $result = $req->execute($arrayToExe);
             $data = $req->fetch();
 
             if($result){

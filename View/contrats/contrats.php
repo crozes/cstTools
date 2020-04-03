@@ -9,6 +9,10 @@
         <p class="lead">Outils permettant de générer automatique un contrat de travail via un formulaire</p>
     </div>
 </div>
+<div class="container mb-4" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
+    <h4 class='mb-4'>Sélectionner une personne pour completer automatiquement le formulaire</h4>
+    <select name="infoPersonne" id="infoPersonne" class="form-control col-4"><?php echo getOptionPersonnes();?></select>
+</div>
 <div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
     <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
         <label class="btn btn-secondary active" id="entraineurDisp">
@@ -66,7 +70,8 @@
                     <div class="col-md-3">
                         <div class="form-group">
                             <label for="departement">Département de Naissance</label>
-                            <select name="departement" id="departement" class="form-control"><option value="511" selected="selected">&nbsp;</option><option value="404">01 - Ain</option><option value="405">02 - Aisne</option><option value="406">03 - Allier</option><option value="407">04 - Alpes-de-Haute-Provence</option><option value="408">05 - Hautes-Alpes</option><option value="409">06 - Alpes-Maritimes</option><option value="410">07 - Ardèche</option><option value="411">08 - Ardennes</option><option value="412">09 - Ariège</option><option value="413">10 - Aube</option><option value="414">11 - Aude</option><option value="415">12 - Aveyron</option><option value="416">13 - Bouches-du-Rhône</option><option value="417">14 - Calvados</option><option value="418">15 - Cantal</option><option value="419">16 - Charente</option><option value="420">17 - Charente-Maritime</option><option value="421">18 - Cher</option><option value="422">19 - Corrèze</option><option value="423">21 - Côte-d'Or</option><option value="424">22 - Côtes-d'Armor</option><option value="425">23 - Creuse</option><option value="426">24 - Dordogne</option><option value="427">25 - Doubs</option><option value="428">26 - Drôme</option><option value="429">27 - Eure</option><option value="430">28 - Eure-et-Loir</option><option value="431">29 - Finistère</option><option value="432">2A - Corse-du-Sud</option><option value="433">2B - Haute-Corse</option><option value="434">30 - Gard</option><option value="435" selected="selected">31 - Haute-Garonne</option><option value="436">32 - Gers</option><option value="437">33 - Gironde</option><option value="438">34 - Hérault</option><option value="439">35 - Ille-et-Vilaine</option><option value="440">36 - Indre</option><option value="441">37 - Indre-et-Loire</option><option value="442">38 - Isère</option><option value="443">39 - Jura</option><option value="444">40 - Landes</option><option value="445">41 - Loir-et-Cher</option><option value="446">42 - Loire</option><option value="447">43 - Haute-Loire</option><option value="448">44 - Loire-Atlantique</option><option value="449">45 - Loiret</option><option value="450">46 - Lot</option><option value="451">47 - Lot-et-Garonne</option><option value="452">48 - Lozère</option><option value="453">49 - Maine-et-Loire</option><option value="454">50 - Manche</option><option value="455">51 - Marne</option><option value="456">52 - Haute-Marne</option><option value="457">53 - Mayenne</option><option value="458">54 - Meurthe-et-Moselle</option><option value="459">55 - Meuse</option><option value="460">56 - Morbihan</option><option value="461">57 - Moselle</option><option value="462">58 - Nièvre</option><option value="463">59 - Nord</option><option value="464">60 - Oise</option><option value="465">61 - Orne</option><option value="466">62 - Pas-de-Calais</option><option value="467">63 - Puy-de-Dôme</option><option value="468">64 - Pyrénées-Atlantiques</option><option value="469">65 - Hautes-Pyrénées</option><option value="470">66 - Pyrénées-Orientales</option><option value="471">67 - Bas-Rhin</option><option value="472">68 - Haut-Rhin</option><option value="473">69 - Rhône</option><option value="474">70 - Haute-Saône</option><option value="475">71 - Saône-et-Loire</option><option value="476">72 - Sarthe</option><option value="477">73 - Savoie</option><option value="478">74 - Haute-Savoie</option><option value="479">75 - Paris</option><option value="480">76 - Seine-Maritime</option><option value="481">77 - Seine-et-Marne</option><option value="482">78 - Yvelines</option><option value="483">79 - Deux-Sèvres</option><option value="484">80 - Somme</option><option value="485">81 - Tarn</option><option value="486">82 - Tarn-et-Garonne</option><option value="487">83 - Var</option><option value="488">84 - Vaucluse</option><option value="489">85 - Vendée</option><option value="490">86 - Vienne</option><option value="491">87 - Haute-Vienne</option><option value="492">88 - Vosges</option><option value="493">89 - Yonne</option><option value="494">90 - Territoire de Belfort</option><option value="495">91 - Essonne</option><option value="496">92 - Hauts-de-Seine</option><option value="497">93 - Seine-Saint-Denis</option><option value="498">94 - Val-de-Marne</option><option value="499">95 - Val-d'Oise</option><option value="757">98 - Monaco</option><option value="501">972 - Martinique</option><option value="500">971 - Guadeloupe</option><option value="502">973 - Guyane</option><option value="503">974 - La Réunion</option><option value="504">975 - Saint-Pierre-et-Miquelon</option><option value="505">976 - Mayotte</option><option value="506">984 - Terres Australes et Antarctiques</option><option value="507">986 -Wallis et Futuna</option><option value="508">987 - Polynésie Française</option><option value="509">988 - Nouvelle-Calédonie</option><option value="510">999 - Étranger</option></select>
+                            <!--<select name="departement" id="departement" class="form-control"><option value="NULL">&nbsp;</option><option value="404">01 - Ain</option><option value="405">02 - Aisne</option><option value="406">03 - Allier</option><option value="407">04 - Alpes-de-Haute-Provence</option><option value="408">05 - Hautes-Alpes</option><option value="409">06 - Alpes-Maritimes</option><option value="410">07 - Ardèche</option><option value="411">08 - Ardennes</option><option value="412">09 - Ariège</option><option value="413">10 - Aube</option><option value="414">11 - Aude</option><option value="415">12 - Aveyron</option><option value="416">13 - Bouches-du-Rhône</option><option value="417">14 - Calvados</option><option value="418">15 - Cantal</option><option value="419">16 - Charente</option><option value="420">17 - Charente-Maritime</option><option value="421">18 - Cher</option><option value="422">19 - Corrèze</option><option value="423">21 - Côte-d'Or</option><option value="424">22 - Côtes-d'Armor</option><option value="425">23 - Creuse</option><option value="426">24 - Dordogne</option><option value="427">25 - Doubs</option><option value="428">26 - Drôme</option><option value="429">27 - Eure</option><option value="430">28 - Eure-et-Loir</option><option value="431">29 - Finistère</option><option value="432">2A - Corse-du-Sud</option><option value="433">2B - Haute-Corse</option><option value="434">30 - Gard</option><option value="435" selected="selected">31 - Haute-Garonne</option><option value="436">32 - Gers</option><option value="437">33 - Gironde</option><option value="438">34 - Hérault</option><option value="439">35 - Ille-et-Vilaine</option><option value="440">36 - Indre</option><option value="441">37 - Indre-et-Loire</option><option value="442">38 - Isère</option><option value="443">39 - Jura</option><option value="444">40 - Landes</option><option value="445">41 - Loir-et-Cher</option><option value="446">42 - Loire</option><option value="447">43 - Haute-Loire</option><option value="448">44 - Loire-Atlantique</option><option value="449">45 - Loiret</option><option value="450">46 - Lot</option><option value="451">47 - Lot-et-Garonne</option><option value="452">48 - Lozère</option><option value="453">49 - Maine-et-Loire</option><option value="454">50 - Manche</option><option value="455">51 - Marne</option><option value="456">52 - Haute-Marne</option><option value="457">53 - Mayenne</option><option value="458">54 - Meurthe-et-Moselle</option><option value="459">55 - Meuse</option><option value="460">56 - Morbihan</option><option value="461">57 - Moselle</option><option value="462">58 - Nièvre</option><option value="463">59 - Nord</option><option value="464">60 - Oise</option><option value="465">61 - Orne</option><option value="466">62 - Pas-de-Calais</option><option value="467">63 - Puy-de-Dôme</option><option value="468">64 - Pyrénées-Atlantiques</option><option value="469">65 - Hautes-Pyrénées</option><option value="470">66 - Pyrénées-Orientales</option><option value="471">67 - Bas-Rhin</option><option value="472">68 - Haut-Rhin</option><option value="473">69 - Rhône</option><option value="474">70 - Haute-Saône</option><option value="475">71 - Saône-et-Loire</option><option value="476">72 - Sarthe</option><option value="477">73 - Savoie</option><option value="478">74 - Haute-Savoie</option><option value="479">75 - Paris</option><option value="480">76 - Seine-Maritime</option><option value="481">77 - Seine-et-Marne</option><option value="482">78 - Yvelines</option><option value="483">79 - Deux-Sèvres</option><option value="484">80 - Somme</option><option value="485">81 - Tarn</option><option value="486">82 - Tarn-et-Garonne</option><option value="487">83 - Var</option><option value="488">84 - Vaucluse</option><option value="489">85 - Vendée</option><option value="490">86 - Vienne</option><option value="491">87 - Haute-Vienne</option><option value="492">88 - Vosges</option><option value="493">89 - Yonne</option><option value="494">90 - Territoire de Belfort</option><option value="495">91 - Essonne</option><option value="496">92 - Hauts-de-Seine</option><option value="497">93 - Seine-Saint-Denis</option><option value="498">94 - Val-de-Marne</option><option value="499">95 - Val-d'Oise</option><option value="757">98 - Monaco</option><option value="501">972 - Martinique</option><option value="500">971 - Guadeloupe</option><option value="502">973 - Guyane</option><option value="503">974 - La Réunion</option><option value="504">975 - Saint-Pierre-et-Miquelon</option><option value="505">976 - Mayotte</option><option value="506">984 - Terres Australes et Antarctiques</option><option value="507">986 -Wallis et Futuna</option><option value="508">987 - Polynésie Française</option><option value="509">988 - Nouvelle-Calédonie</option><option value="510">999 - Étranger</option></select>-->
+                            <select name="departement" id="departement" class="form-control"><?php echo getOptionDepartement();?></select>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -137,10 +142,10 @@
 </div>
 
 <script>
-    $( "#entraineurDisp" ).click(function() {
+    $( "#entraineurDisp" ).change(function() {
         majForm();
     });
-    $( "#formateurDisp" ).click(function() {
+    $( "#formateurDisp" ).change(function() {
         majForm();
     }); 
 
@@ -176,4 +181,35 @@
         var path = "Control/contrats/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&nni="+nni+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&nbHeure="+nbHeure+"&type="+type;
         window.open(path,'_blank'); 
     }
+
+    $('#infoPersonne').change(function(){
+        var idPersonne = $('#infoPersonne').val();
+        var json = {
+            Personne:idPersonne
+            };
+        console.log(json);
+        var data = JSON.stringify(json);
+        $.ajax({
+            type: "POST",
+            url: "Control/contrats/getUtilisateurInfo.php",
+            dataType: 'json',
+            data: data,
+        })
+        .done(function(dataReturned) {
+            console.log(JSON.stringify(dataReturned));
+            $("#nom").val(dataReturned['nomPersonne']);
+            $("#prenom").val(dataReturned['prenomPersonne']);
+            $("#naissance").val(dataReturned['dateNaissancePersonne']);
+            $("#lieuNaissance").val(dataReturned['villeNaissancePersonne']);
+            $("#adresse").val(dataReturned['adressePersonne']);
+            $("#adresse_suite").val(dataReturned['adresseSuitePersonne']);
+            $("#code_postal").val(dataReturned['codePostalPersonne']);
+            $("#ville").val(dataReturned['villePersonne']);
+            $("#nni").val(dataReturned['nniPersonne']);
+            $("#departement").val(dataReturned['idDepartement']);
+        })
+        .fail(function() {
+            console.log("Error");
+        });
+    });
 </script>

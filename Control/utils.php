@@ -1,26 +1,39 @@
 <?php
-function getOptionPays(){
+function getOptionPays($selected=null) {
     global $PDO;
-    $sql_select = 'SELECT * FROM Pays';
+    $sql_select = 'SELECT idPays, nomFrPays FROM Pays ORDER BY (nomFrPays)';
     $req = $PDO->prepare($sql_select);
     $req->execute();
     $data = $req->fetchAll();
-    $option = "";
+    $option = "<option value='NULL'> Pays de naissance </option>";
     foreach( $data as $element){
-        $option .= "<option value='".$element->idPays."'".($element->nomFrPays == "France"?"selected":"").">".$element->nomFrPays."</option>";
+        $option .= "<option value='".$element->idPays."'".($selected!=null?($element->idPays==$selected?"selected":""):"").">".$element->nomFrPays."</option>";
     }
     return $option;
 }
 
-function getOptionDepartement(){
+function getOptionDepartement($selected=null) {
     global $PDO;
-    $sql_select = 'SELECT * FROM Departement';
+    $sql_select = 'SELECT idDepartement, codeDepartement, nomDepartement FROM Departement ORDER BY (codeDepartement)';
     $req = $PDO->prepare($sql_select);
     $req->execute();
     $data = $req->fetchAll();
-    $option = "";
+    $option = "<option value='NULL'> Departement de naissance </option>";
     foreach( $data as $element){
-        $option .= "<option value='".$element->idDepartement."'>".$element->codeDepartement." - ".$element->nomDepartement."</option>";
+        $option .= "<option value='".$element->idDepartement."'".($selected!=null?($selected==$element->idDepartement?"selected":""):"").">".$element->codeDepartement." - ".$element->nomDepartement."</option>";
+    }
+    return $option;
+}
+
+function getOptionPersonnes($selected=null) {
+    global $PDO;
+    $sql_select = 'SELECT idPersonne, nomPersonne, prenomPersonne FROM Personne ORDER BY (nomPersonne)';
+    $req = $PDO->prepare($sql_select);
+    $req->execute();
+    $data = $req->fetchAll();
+    $option = "<option value='NULL' selected>---</option>";
+    foreach( $data as $element ){
+        $option .= "<option value='".$element->idPersonne."'>".$element->nomPersonne." ".$element->prenomPersonne."</option>";
     }
     return $option;
 }

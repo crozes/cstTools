@@ -1,6 +1,5 @@
 <?php 
 class Auth{
-
     function create($d){
         global $PDO;
         $sql = "    INSERT INTO `Personne` (`idPersonne`, `nomPersonne`, `prenomPersonne`, `mailPersonne`, `mdpPersonne`, `idRole`) 
@@ -20,9 +19,9 @@ class Auth{
 
     function login($d){
         global $PDO;
-        $sql = "SELECT p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, p.mdpPersonne, r.valueRole, r.nomRole 
+        $sql = "SELECT p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, p.mdpPersonne, p.dateNaissancePersonne, p.villeNaissancePersonne, p.adressePersonne, p.adresseSuitePersonne, p.codePostalPersonne, p.villePersonne, p.nniPersonne, r.valueRole, r.nomRole, p.idDepartement, p.idPays, p.idRole
                 FROM Personne p 
-                INNER JOIN Role r ON p.idRole=r.idRole 
+                INNER JOIN Role r ON p.idRole=r.idRole
                 WHERE mailPersonne=:email 
                 AND mdpPersonne=:password";
         $req = $PDO->prepare($sql);
