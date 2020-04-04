@@ -19,7 +19,7 @@ class Auth{
 
     function login($d){
         global $PDO;
-        $sql = "SELECT p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, p.mdpPersonne, p.dateNaissancePersonne, p.villeNaissancePersonne, p.adressePersonne, p.adresseSuitePersonne, p.codePostalPersonne, p.villePersonne, p.nniPersonne, r.valueRole, r.nomRole, p.idDepartement, p.idPays, p.idRole
+        $sql = "SELECT p.sexePersonne, p.idPersonne, p.nomPersonne, p.prenomPersonne, p.mailPersonne, p.mdpPersonne, p.dateNaissancePersonne, p.villeNaissancePersonne, p.adressePersonne, p.adresseSuitePersonne, p.codePostalPersonne, p.villePersonne, p.nniPersonne, r.valueRole, r.nomRole, p.idDepartement, p.idPays, p.idRole
                 FROM Personne p 
                 INNER JOIN Role r ON p.idRole=r.idRole
                 WHERE mailPersonne=:email 
