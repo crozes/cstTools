@@ -1,7 +1,7 @@
 <?php
     include_once 'Control/all/log_db.php';
 
-    function createAccount($nom,$prenom,$mail,$password,$dateNaissance=null,$villeNaissance=null,$departementNaissance=null,$paysNaissance=null,$adresse=null,$adresseSuite=null,$codePostal=null,$ville=null,$nni=null){
+    function createAccount($sexe,$nom,$prenom,$mail,$password,$dateNaissance=null,$villeNaissance=null,$departementNaissance=null,$paysNaissance=null,$adresse=null,$adresseSuite=null,$codePostal=null,$ville=null,$nni=null){
         global $DB_serveur;
         global $DB_base;
         global $DB_utilisateur;
@@ -28,7 +28,7 @@
 
         $dateActu = date('Y\/m\/d');
         if(count($data)==0){
-            $sql_insert = ' INSERT INTO `Personne` (idPersonne, nomPersonne, prenomPersonne, mailPersonne, mdpPersonne, idRole, dateDeclaPersonne, dateNaissancePersonne, villeNaissancePersonne, adressePersonne, adresseSuitePersonne, codePostalPersonne, villePersonne, nniPersonne, idDepartement, idPays)
+            $sql_insert = ' INSERT INTO `Personne` (idPersonne, nomPersonne, prenomPersonne, mailPersonne, mdpPersonne, idRole, dateDeclaPersonne, dateNaissancePersonne, villeNaissancePersonne, adressePersonne, adresseSuitePersonne, codePostalPersonne, villePersonne, nniPersonne, idDepartement, idPays, sexePersonne)
                             VALUES  (NULL, 
                                     :nom,
                                     :prenom, 
@@ -44,7 +44,8 @@
                                     :ville, 
                                     :nni, 
                                     :depNaissance, 
-                                    :paysNaissance);';
+                                    :paysNaissance,
+                                    :sexe);';
                         
             //error_log ($sql_insert);
             $req = $PDO->prepare($sql_insert);
@@ -61,7 +62,8 @@
                             ':ville' => (empty($ville)?NULL:ucwords($ville)),
                             ':nni' => (empty($nni)?NULL:$nni),
                             ':depNaissance' => ($departementNaissance=='NULL'?NULL:$departementNaissance),
-                            ':paysNaissance' => ($paysNaissance=='NULL'?NULL:$paysNaissance)
+                            ':paysNaissance' => ($paysNaissance=='NULL'?NULL:$paysNaissance),
+                            ':sexe' => ($sexe=='NULL'?NULL:$sexe)
                         ];
             //print_r($arrayToExe);
             $result = $req->execute($arrayToExe);

@@ -28,7 +28,7 @@
             include_once "Control/account/addAccount.php";
             $_POST["password"] = strtoupper($_POST["password"]);
             //createAccount($nom,$prenom,$mail,$password,$dateNaissance,$villeNaissance,$departementNaissance,$paysNaissance,$adresse,$adresseSuite,$codePostal,$ville,$nni)
-            $ret = createAccount($_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["password"],$_POST["dateNaissance"],$_POST["villeNaissance"],$_POST["departement"],$_POST["pays"],$_POST["adresse"],$_POST["adresse2"],$_POST["codePostal"],$_POST["ville"],$_POST["nni"]);
+            $ret = createAccount($_POST["sexe"],$_POST["nom"],$_POST["prenom"],$_POST["email"],$_POST["password"],$_POST["dateNaissance"],$_POST["villeNaissance"],$_POST["departement"],$_POST["pays"],$_POST["adresse"],$_POST["adresse2"],$_POST["codePostal"],$_POST["ville"],$_POST["nni"]);
             //$ret = $Auth->create($_POST);
             if($ret == 'OK'){
                 //header('Location:index.php?page=accueil');
@@ -79,6 +79,12 @@
             <h4 class="card-title mt-3 mb-3 text-center">Création de compte</h4>
             <!-- ?page=signin -->
             <form id="creationCompte" action="?page=enregistrer" method="POST">
+                <div class="form-group input-group">
+                    <select id="sexe" name="sexe" class="form-control">
+                        <option value="Monsieur">Monsieur</option>
+                        <option value="Madame">Madame</option>
+                    </select>
+                </div>
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>

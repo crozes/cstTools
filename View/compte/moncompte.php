@@ -40,6 +40,16 @@ if(!empty($_POST)){
                     <div class="card-body">
                         <form action="?page=moncompte" method="POST" id="updateInfo">
                             <div class="form-group row">
+                                <label for="sexe" class="col-md-4 col-form-label text-md-right">Sexe</label>
+                                <div class="col-md-6">
+                                    <select id="sexe" name="sexe" class="form-control">
+                                        <option value="NULL">---</option>
+                                        <option value="Monsieur">Monsieur</option>
+                                        <option value="Madame">Madame</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label for="nom" class="col-md-4 col-form-label text-md-right">Nom</label>
                                 <div class="col-md-6">
                                     <input type="text" id="nom" class="form-control" name="nom" required>
@@ -163,6 +173,7 @@ function majInfo(){
     $('#codePostal').val("<?php echo $_SESSION['Auth'][0]->codePostalPersonne; ?>");
     $('#ville').val("<?php echo $_SESSION['Auth'][0]->villePersonne; ?>");
     $('#nni').val("<?php echo $_SESSION['Auth'][0]->nniPersonne; ?>");
+    $('#sexe').val("<?php echo ( $_SESSION['Auth'][0]->sexePersonne==null?"NULL":$_SESSION['Auth'][0]->sexePersonne); ?>");
 }
 
 $("#updateInfo").validate({

@@ -30,6 +30,7 @@
                         <div class="form-group">
                             <label for="sexe">Sexe</label>
                             <select id="sexe" name="sexe" class="form-control">
+                                <option value="NULL">---</option>
                                 <option value="Monsieur">Monsieur</option>
                                 <option value="Madame">Madame</option>
                             </select>
@@ -207,6 +208,7 @@
             $("#ville").val(dataReturned['villePersonne']);
             $("#nni").val(dataReturned['nniPersonne']);
             $("#departement").val(dataReturned['idDepartement']);
+            $("#sexe").val(dataReturned['sexePersonne']);
         })
         .fail(function() {
             console.log("Error");

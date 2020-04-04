@@ -26,7 +26,8 @@
                             `villePersonne` = :ville,
                             `nniPersonne` = :nni,
                             `idDepartement` = :departement,
-                            `idPays` = :pays
+                            `idPays` = :pays,
+                            `sexePersonne` = :sexe
                         WHERE `Personne`.`idPersonne` = :idPersonne';
         
         $arrayToExec = [
@@ -42,7 +43,8 @@
             ':nni' => $array['nni'],
             ':departement' => $array['departement'],
             ':pays' => $array['pays'],
-            ':idPersonne' => $_SESSION['Auth'][0]->idPersonne
+            ':idPersonne' => $_SESSION['Auth'][0]->idPersonne,
+            ':sexe' => $array['sexe']
         ];
 
 
@@ -62,6 +64,7 @@
             $_SESSION['Auth'][0]->nniPersonne = $array['nni'];
             $_SESSION['Auth'][0]->idDepartement = $array['departement'];
             $_SESSION['Auth'][0]->idPays = $array['pays'];
+            $_SESSION['Auth'][0]->sexePersonne = $array['sexe'];
             return true;
         }
         else{
