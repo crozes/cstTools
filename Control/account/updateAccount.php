@@ -34,17 +34,17 @@
             ':nom' => $array['nom'],
             ':prenom' => $array['prenom'],
             ':email' => $array['email'],
-            ':dateNaissance' => $array['dateNaissance'],
-            ':villeNaissance' => $array['villeNaissance'],
-            ':adresse' => $array['adresse'],
-            ':adresse2' => $array['adresse2'],
-            ':codePostal' => $array['codePostal'],
-            ':ville' => $array['ville'],
-            ':nni' => $array['nni'],
-            ':departement' => $array['departement'],
-            ':pays' => $array['pays'],
+            ':dateNaissance' => ($array['dateNaissance']==""?null:$array['dateNaissance']),
+            ':villeNaissance' => ($array['villeNaissance']==""?null:$array['villeNaissance']),
+            ':adresse' => ($array['adresse']==""?NULL:$array['adresse']),
+            ':adresse2' => ($array['adresse2']==""?NULL:$array['adresse2']),
+            ':codePostal' => ($array['codePostal']==""?NULL:$array['codePostal']),
+            ':ville' => ($array['ville']==""?NULL:$array['ville']),
+            ':nni' => ($array['nni']==""?NULL:$array['nni']),
+            ':departement' => ($array['departement']=="NULL"?NULL:$array['departement']),
+            ':pays' => ($array['pays']=="NULL"?NULL:$array['pays']),
             ':idPersonne' => $_SESSION['Auth'][0]->idPersonne,
-            ':sexe' => $array['sexe']
+            ':sexe' => ($array['sexe']==""?NULL:$array['sexe']),
         ];
 
 
