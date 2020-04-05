@@ -9,7 +9,7 @@
 			<p class="lead">Licenciement automatique via formulaire Google-Sheet</p>
 		</div>
 	</div>
-	<div class="container" id="top">
+	<div class="container mb-4" id="top" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
 		<div class="row">
 			<div class="auto">
 				<form action="https://www.ffss.fr/web/ffss/9-espace-reserve.php" method="post" target="_blank" accept-charset="ISO-8859-1">
@@ -29,7 +29,7 @@
 	</div>
 	<hr/>
 	<canvas id="pizza" class="loader"></canvas>
-	<div class="container mb-4 d-none" id="bottom">
+	<div class="container mb-4 d-none" id="bottom" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
 		<div class="alert alert-info" role="alert"><strong id="nbrLicencier"></strong> Personnes à licencier</div>
 		<div class="alert alert-danger" role="alert">Verifier <strong>Nationnalié</strong>, <strong>Departement</strong>, <strong>Date de Naissance</strong> dans le bon format (<strong>JJ/MM/AAAA</strong>)</div>
 		<div class="row">

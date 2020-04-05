@@ -11,7 +11,7 @@
 		<p class="lead">Console d'administration</p>
 	</div>
 </div>
-<div class="container">
+<div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
     <div class="row mb-4">
         <div class="col-lg-3 col-md-6 col-sm-6">
             <div class="card card-stats">

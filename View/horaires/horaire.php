@@ -9,7 +9,7 @@
 		<p class="lead">Outil de déclaration des heures faites</p>
 	</div>
 </div>
-<div class="container">
+<div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
 	<div class="row">
 	<div class="col-sm-12">
 		<div class="alert alert-danger alert-dismissible" role="alert">
