@@ -1,7 +1,7 @@
 <?php
     function association($uuidRezMdp,$mailRezMdp){
         global $PDO;
-        $sql_select = 'INSERT INTO RezMdp (uuidRezMdp,mailRezMdp,dateRezMdp) VALUES ('.$uuidRezMdp.','.$mailRezMdp.','.date().');';
+        $sql_select = 'INSERT INTO RezMdp (uuidRezMdp,mailRezMdp,dateRezMdp) VALUES ('.$uuidRezMdp.','.$mailRezMdp.','.date('Y\/m\/d').');';
         $req = $PDO->prepare($sql_select);
         $req->execute();
     }
