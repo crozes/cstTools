@@ -9,10 +9,8 @@
     function envoyerMail($to){
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
-    
-        association();
-
         $uuid = uniqid();
+        association($uuid,$to);
         $from = "communication.cst31@gmail.com";
         $subject = "Reinitialisation du mot de passe";
         $headers = "From: FFSS 31 - Club de Sauvetage Toulousain\r\n";
