@@ -1,6 +1,6 @@
 <?php
 function getOptionPays($selected=null) {
-    global ${PDO};
+    global $PDO;
     $sql_select = 'SELECT idPays, nomFrPays FROM Pays ORDER BY (nomFrPays)';
     $req = $PDO->prepare($sql_select);
     $req->execute();
