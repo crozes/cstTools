@@ -1,6 +1,6 @@
 <?php
-    include 'Control/account/resetById.php';
-    $alert = null;
+    include 'Control/account/resetById.php'; 
+    $alert = "";
     if(isset($_GET['id'])){
         $uuid = $_GET['id'];
         $mail = getMailById($uuid);
