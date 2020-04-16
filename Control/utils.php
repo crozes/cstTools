@@ -48,7 +48,7 @@ function majMotDePasse($motdepasse){
 
 function majMotDePasseByMail($motdepasse,$mail){
     global $PDO;
-    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE mailPersonne='.$mail.';';
+    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE mailPersonne=\''.$mail.'\';';
     //error_log($sql_select);
     $req = $PDO->prepare($sql_select);
     return $req->execute();
