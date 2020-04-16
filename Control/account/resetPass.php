@@ -4,8 +4,8 @@
         error_reporting( E_ALL );
     
         $from = "communication.cst31@gmail.com";
-        $subject = "Réinitialisation du mot de passe";
-        $headers = "From:" . $from . "\r\n";
+        $subject = "Reinitialisation du mot de passe";
+        $headers = "From: FFSS 31 - Club de Sauvetage Toulousain\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
