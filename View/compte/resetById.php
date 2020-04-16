@@ -5,8 +5,7 @@
         $uuid = $_GET['id'];
         $mail = getMailById($uuid);
         if($mail == null){
-            //header('Location:index.php');
-            echo 'coucou';
+            header('Location:index.php');
         }
         setcookie("EmailToChange",$mail);
     }
@@ -73,3 +72,40 @@
         </div>
     </div>
 </main>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+<script>
+$("#updateInfo").validate({
+    rules: {
+        password: {
+            required: true,
+            minlength: 8
+        },
+        password2: {
+            required: true,
+            equalTo: "#nouveau_mdp",
+        }
+    },
+    messages: {
+        password: {
+            required: "Veuillez rentrer un mot de passe",
+            minlength: ""
+        },
+        password2: {
+            required: "Veuillez répéter le nouveau mot de passe",
+            equalTo: "Mot de passe différent"
+
+        }
+    },
+    //wrapper: 'div',
+    errorPlacement: function(label, element) {
+        //element.addClass('is-invalid');
+        label.addClass('invalid-feedback');
+        label.insertAfter(element);
+    },
+    /* success: function(label) {
+        label.removeClass("invalid-feedback").addClass("valid-feedback").text("Ok!");
+    } */
+});
+</script>
