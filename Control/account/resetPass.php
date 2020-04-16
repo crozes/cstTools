@@ -4,8 +4,8 @@
         error_reporting( E_ALL );
     
         $from = "communication.cst31@gmail.com";
-        $subject = "Vérification PHP mail";
-        $headers = "From:" . $from . "\r\n";
+        $subject = "Réinitialisation du mot de passe";
+        $headers = "From:Club de sauvetage toulousain\r\n";
         $headers .= "MIME-Version: 1.0\r\n";
         $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
 
