@@ -84,13 +84,13 @@ $("#updateInfo").validate({
         },
         password2: {
             required: true,
-            equalTo: "#nouveau_mdp",
+            equalTo: "#password",
         }
     },
     messages: {
         password: {
             required: "Veuillez rentrer un mot de passe",
-            minlength: ""
+            minlength: "Le mot de passe doit faire minimum 8 caractères"
         },
         password2: {
             required: "Veuillez répéter le nouveau mot de passe",
