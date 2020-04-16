@@ -56,7 +56,7 @@ function majMotDePasseByMail($motdepasse,$mail){
 
 function checkIfMailExist($mail){
     global $PDO;
-    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE idPersonne='.$_SESSION['Auth'][0]->idPersonne.';';
+    $sql_select = 'SELECT mailPersonne FROM Personne WHERE mailPersonne = '.$mail.';';
     $req = $PDO->prepare($sql_select);
     $req->execute();
     $result = $req->fetchAll();

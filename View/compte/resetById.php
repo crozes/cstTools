@@ -5,7 +5,8 @@
         $uuid = $_GET['id'];
         $mail = getMailById($uuid);
         if($mail == null){
-            header('Location:index.php');
+            //header('Location:index.php');
+            echo 'coucou';
         }
         setcookie("EmailToChange",$mail);
     }
