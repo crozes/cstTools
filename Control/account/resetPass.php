@@ -22,7 +22,7 @@
                 <p>Le mot de passe restera inchangé tant que vous n\'aurez pas appuyer sur le bouton ci-dessous</p>
                 <br>
                 <div style="text-align:center;">
-                    <a href="http://'.SERVER_ADRESS.'/" style="text-decoration: none;color: white;background-color: #f44336;padding: 10px;border-radius: 3px;">Réinitialiser le mot de passe</a>
+                    <a href="http://'.SERVER_ADRESS.'/" style="text-decoration: none;color: white;background-color: #f44336;padding: 10px;border-radius: 3px;font-size: 1rem;">Réinitialiser le mot de passe</a>
                 </div>
                 <br>
                 <p style="margin-top: -12px;">Service communication du Club Sauvetage Toulousain </p> 
