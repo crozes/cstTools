@@ -1,20 +1,31 @@
 <?php
     include 'Control/account/resetPass.php';
-    if(isset($_POST['mail'])){
-        if(envoyerMail($_POST['mail'])){
-            $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
-                        <h4 class="alert-heading">Mail envoyé !</h4>
-                        <p>Un mail vous a été envoyé afin de changer votre mot de passe, vérifier vos spams</p>
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>';
+    if( isset( $_POST['mail'] ) ){
+        if( !checkIfMailExist( $_POST['mail'] ) ) {
+            if( envoyerMail( $_POST['mail'] ) ) {
+                $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Mail envoyé !</h4>
+                            <p>Un mail vous a été envoyé afin de changer votre mot de passe, vérifier vos spams</p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
+            }
+        }
+        else {
+            $alert = '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <h4 class="alert-heading">Mail introuvable dans la base de donnée</h4>
+                            <p>Le mail que vous avez renseigné : '.$_POST['mail'].' n\'existe pas </p>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>';
         }
     }
 ?>
 <div class="jumbotron jumbotron-fluid bg-danger text-white">
 <div class="container">
-    <h1 class="display-3">Réinitialisation du mot de passe</h1>
+    <h1 class="display-3">Mot de passe oublié</h1>
     <!--<p class="lead">---</p>-->
 </div>
 </div>

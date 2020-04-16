@@ -1,5 +1,5 @@
 <?php
-    function association($uuidRezMdp,$mailRezMdp){
+    function insertRezMdp($uuidRezMdp,$mailRezMdp){
         global $PDO;
         $date = date('Y-m-d');
         $sql_select = 'INSERT INTO RezMdp (idRezMdp,uuidRezMdp,mailRezMdp,dateRezMdp) VALUES (NULL,\''.$uuidRezMdp.'\',\''.$mailRezMdp.'\',\''.$date.'\');';
@@ -11,7 +11,7 @@
         ini_set( 'display_errors', 1 );
         error_reporting( E_ALL );
         $uuid = uniqid();
-        association($uuid,$to);
+        insertRezMdp($uuid,$to);
         $from = "communication.cst31@gmail.com";
         $subject = "Reinitialisation du mot de passe";
         $headers = "From: FFSS 31 - Club de Sauvetage Toulousain\r\n";

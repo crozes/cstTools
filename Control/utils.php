@@ -41,7 +41,29 @@ function getOptionPersonnes($selected=null) {
 function majMotDePasse($motdepasse){
     global $PDO;
     $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE idPersonne='.$_SESSION['Auth'][0]->idPersonne.';';
-    error_log($sql_select);
+    //error_log($sql_select);
     $req = $PDO->prepare($sql_select);
     return $req->execute();
+}
+
+function majMotDePasseByMail($motdepasse,$mail){
+    global $PDO;
+    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE mailPersonne='.$mail.';';
+    //error_log($sql_select);
+    $req = $PDO->prepare($sql_select);
+    return $req->execute();
+}
+
+function checkIfMailExist($mail){
+    global $PDO;
+    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE idPersonne='.$_SESSION['Auth'][0]->idPersonne.';';
+    $req = $PDO->prepare($sql_select);
+    $req->execute();
+    $result = $req->fetchAll();
+    if(empty($result)){
+        return false;
+    }
+    else{
+        return true;
+    }
 }
