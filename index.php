@@ -2,6 +2,7 @@
     header('Content-Type: text/html; charset=utf-8');
     session_start();
 
+    include 'Control/define.php';
     include 'Control/auth/class_auth.php';
     include 'Control/all/log_db.php';
     try{

@@ -4,7 +4,7 @@
         if(envoyerMail($_POST['mail'])){
             $alert = '<div class="alert alert-success alert-dismissible fade show" role="alert">
                         <h4 class="alert-heading">Mail envoyé !</h4>
-                        <p>Un mail vous a été envoyé afin de changer votre mot de passe</p>
+                        <p>Un mail vous a été envoyé afin de changer votre mot de passe, vérifier vos spams</p>
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
