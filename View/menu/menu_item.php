@@ -31,7 +31,7 @@
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <h6 class="dropdown-header">Mon compte</h6>
                     <a class="dropdown-item" href="?page=moncompte">Mes informations</a>
-                    <a class="dropdown-item" href="#">Changer mon mot de passe</a>
+                    <a class="dropdown-item" href="?page=modPass">Changer mon mot de passe</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger"  href="?page=logout">Déconnexion</a>
                 </div>

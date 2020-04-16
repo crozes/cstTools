@@ -1,6 +1,6 @@
 <?php
 function getOptionPays($selected=null) {
-    global $PDO;
+    global ${PDO};
     $sql_select = 'SELECT idPays, nomFrPays FROM Pays ORDER BY (nomFrPays)';
     $req = $PDO->prepare($sql_select);
     $req->execute();
@@ -36,4 +36,12 @@ function getOptionPersonnes($selected=null) {
         $option .= "<option value='".$element->idPersonne."'>".$element->nomPersonne." ".$element->prenomPersonne."</option>";
     }
     return $option;
+}
+
+function majMotDePasse($motdepasse){
+    global $PDO;
+    $sql_select = 'UPDATE Personne SET mdpPersonne = \''.$motdepasse.'\' WHERE idPersonne='.$_SESSION['Auth'][0]->idPersonne.';';
+    error_log($sql_select);
+    $req = $PDO->prepare($sql_select);
+    return $req->execute();
 }

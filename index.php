@@ -38,8 +38,14 @@
             else if($_GET['page']=='contrats'){
                 include 'View/contrats/contrats.php';
             }
+            else if($_GET['page']=='modPass'){
+                include 'View/compte/modPass.php';
+            }
             else if($_GET['page']=='admin'){
                 include 'View/admin/admin.php';
+            }
+            else if($_GET['page']=='modPass'){
+                include 'View/compte/modPass.php';
             }
             else{
                 header('Location:index.php');
@@ -47,6 +53,9 @@
         }
         else if( $_GET['page']=='login'){
             include 'View/login/login.php';
+        }
+        else if($_GET['page']=='resetPass'){
+            include 'View/compte/resetPass.php';
         }
         else if($_GET['page']=='enregistrer'){
             include 'View/signin/signin.php';

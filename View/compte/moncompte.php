@@ -36,7 +36,7 @@ if(!empty($_POST)){
             <div class="col-md-8">
                 <?php echo $alert;?>
                 <div class="card bg-light">
-                    <div class="card-header">Mon compte</div>
+                    <div class="card-header">Mes informations</div>
                     <div class="card-body">
                         <form action="?page=moncompte" method="POST" id="updateInfo">
                             <div class="form-group row">
