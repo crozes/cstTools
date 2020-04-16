@@ -47,7 +47,7 @@
                 <?php echo $alert;?>
                 <div class="card bg-light">
                     <div class="card-body">
-                        <form action="?page=resetPass" method="POST" id="updateInfo">
+                        <form action="?page=resetById" method="POST" id="updateInfo">
                         <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Nouveau mot de passe</label>
                                 <div class="col-md-6">
