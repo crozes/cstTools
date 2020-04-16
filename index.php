@@ -55,6 +55,9 @@
         else if( $_GET['page']=='login'){
             include 'View/login/login.php';
         }
+        else if($_GET['page']=='resetById'){
+            include 'View/compte/resetById.php';
+        }
         else if($_GET['page']=='resetPass'){
             include 'View/compte/resetPass.php';
         }
