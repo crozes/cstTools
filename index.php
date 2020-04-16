@@ -15,6 +15,7 @@
     include 'Control/utils.php';
     include 'View/header/header.php';
     include 'View/menu/menu.php';
+    $alert = "";
     
     if(isset($_GET['page'])){
         if( isset($_SESSION['Auth']) ){
