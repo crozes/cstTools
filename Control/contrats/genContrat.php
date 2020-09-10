@@ -199,7 +199,7 @@
         $pdf->Cell(38,6,$i.'.  Le salarié effectuera',0,0);
         $i++;
         $pdf->SetFont('RobotoTitre','',10);
-        $pdf->Cell(18,6,$nbHeure.' heures',0,0);
+        $pdf->Cell(25,6,$nbHeure.' heures',0,0,'C');
         $pdf->SetFont('RobotoReg','',10);
         $pdf->Cell(0,6,'par mois temps d’habillage et déshabillage inclus.',0,1);
         $pdf->Cell(0,10,$i.'.  Il pourra intervenir sur les créneaux suivants :',0,1);
