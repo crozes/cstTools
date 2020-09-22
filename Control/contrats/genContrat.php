@@ -24,10 +24,11 @@
     $dateFin = $_GET["finContrat"];
     $nbHeure = $_GET["nbHeure"];
     $type = $_GET["type"];
+    $president = "Monsieur Jean-Louis IMBERT";
 
     // Instanciation de la classe dérivée
     $pdf = new PDF();
-    $pdf->SetTitle('Coucou_Contrat');
+    $pdf->SetTitle($nom.'_Contrat');
     $pdf->AddFont('RobotoReg','','Roboto-Light.ttf',true);
     $pdf->AddFont('Roboto-Black','','Roboto-BoldItalic.ttf',true);
     $pdf->AddFont('RobotoTitre','','Roboto-Bold.ttf',true);
@@ -63,7 +64,7 @@
     $pdf->Cell(10,6,'',0,0);
     $pdf->Cell(25,6,'Représenté par',0,0);
     $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(42,6,'Monsieur Claude CLARAC',0,0);
+    $pdf->Cell(50,6,$president,0,0,'C');
     $pdf->SetFont('RobotoReg','',10);
     $pdf->Cell(35,6,'agissant en qualité de',0,0);
     $pdf->SetFont('RobotoTitre','',10);
@@ -383,7 +384,7 @@
     $pdf->Cell(110,6,'Le représentant Légal :',0,0);
     $pdf->Cell(0,6,'Le collaborateur :',0,1);
     $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(110,6,'Monsieur Claude CLARAC',0,0);
+    $pdf->Cell(110,6,$president,0,0);
     $pdf->Cell(0,6,$sexe.' '.$prenom.' '.$nom,0,1);
     $pdf->Ln(1);
     $pdf->Cell(110,6,'Date signature :',0,0);
@@ -394,48 +395,6 @@
     $pdf->Ln(10);
     $pdf->Cell(110,6,'',0,0);
     $pdf->Cell(0,6,'Signature :',0,1);
-    /*$pdf->AddPage();
-    // Attestation
-    $pdf->SetFont('RobotoTitre','',12);
-    $pdf->Cell(0,8,'Attestation','B',1);
-    $pdf->Ln(3);
-    $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(27,6,'Je soussigné[e],',0,0);
-    $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(0,6,$sexe.' '.$prenom.' '.$nom,0,1);
-    $pdf->SetFont('RobotoReg','',10);
-    $pdf->Ln(3);
-    $pdf->Cell(0,6,'Certifie :',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Cell(10,6,'',0,0);
-    $pdf->Cell(0,6,'• Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit id aperiam cumque? Sequi illo sit ipsa aut porro?',0,1);
-    $pdf->Ln(10);
-    $pdf->Cell(110,6,'Le salarié :',0,0);
-    $pdf->Cell(0,6,'L’employeur :',0,1);
-    $pdf->Cell(10,6,'Fait à',0,0);
-    $pdf->SetFont('RobotoTitre','',10);
-    $pdf->Cell(15,6,'Toulouse',0,0);
-    $pdf->SetFont('RobotoReg','',10);
-    $pdf->Cell(0,6,', le (*)',0,1);
-    $pdf->SetFont('RobotoItal','',8);
-    $pdf->Cell(0,4,'* Mention manuscrite et signature',0,1);
-    $pdf->Cell(0,3,'* "Bon pour accusé de réception".',0,1);
-    $pdf->SetFont('RobotoReg','',10);*/
     // Génération PDF
     $pdf->Output($nom.'_Contrat.pdf','I');
     
