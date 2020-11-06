@@ -56,11 +56,11 @@ function majMotDePasseByMail($motdepasse,$mail){
 
 function checkIfMailExist($mail){
     global $PDO;
-    $sql_select = 'SELECT mailPersonne FROM Personne WHERE mailPersonne = '.$mail.';';
+    $sql_select = 'SELECT mailPersonne FROM Personne WHERE mailPersonne LIKE \''.$mail.'\';';
     $req = $PDO->prepare($sql_select);
     $req->execute();
     $result = $req->fetchAll();
-    if(empty($result)){
+    if(!empty($result)){
         return false;
     }
     else{
