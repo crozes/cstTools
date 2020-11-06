@@ -1,2 +1,2 @@
 <?php
-    define("SERVER_ADRESS", "csttools.ddns.net/cstTools");
+    define("SERVER_ADRESS", "csttools.ddns.net/cstTools"); 
