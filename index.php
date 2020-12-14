@@ -40,6 +40,9 @@
             else if($_GET['page']=='contrats'){
                 include 'View/contrats/contrats.php';
             }
+            else if($_GET['page']=='attestation'){
+                include 'View/documentsAdministratif/attestationDeplacement.php';
+            }
             else if($_GET['page']=='modPass'){
                 include 'View/compte/modPass.php';
             }

@@ -14,7 +14,16 @@
             if($_SESSION['Auth'][0]->valueRole>=3){
                 echo '  
                     <li class="nav-item">
-                        <a id="navbarSupportedContent" class="nav-link" href="?page=contrats">Contrats</a>
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle text-danger bg-light" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Documents
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item text-danger bg-light" href="?page=contrats">Contrats</a>
+                                <a class="dropdown-item text-danger bg-light" href="?page=attestation">Attestations Déplacement</a>
+                                <a class="dropdown-item text-danger bg-light" class="nav-link" href="#">Attestation Compétition</a>
+                            </div>
+                        </div>
                     </li>
                     <li class="nav-item">
                             <a id="navbarSupportedContent" class="nav-link" href="?page=admin">Administration</a>

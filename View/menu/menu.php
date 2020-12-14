@@ -8,11 +8,9 @@
             if(isset($_SESSION['Auth'])){
                 include 'View/menu/menu_item.php';
             }
-
-            if(!isset($_SESSION['Auth'])){
+            else{
                 include 'View/menu/menu_item_log.php';
             }
         ?>
-        
     </div>
 </nav>

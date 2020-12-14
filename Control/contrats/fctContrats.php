@@ -6,7 +6,7 @@ class PDF extends tFPDF
         {
             // Logo
             //$this->Image('../../img/logotrans.png',10,6,30);
-            $this->Image('../../img/patern.jpg',0,0,210,0);
+            $this->Image('../../img/DocumentCSTVierge.jpg',0,0,210,0);
             // Police Arial gras 15
             $this->SetFont('RobotoTitre','',25);
             // Décalage à droite
