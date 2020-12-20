@@ -148,9 +148,9 @@
         var debutContrat = $("#debutContrat").val();
         var finContrat = $("#finContrat").val();
         var lieuExe = $("#lieuExe").val();
-        var natExe = $("#natExe").val();
+        var natExe = $("#natExe").val(); 
         var moyDep = $("#moyDep").val();
-        var path = "Control/documentsAdministratif/genContrat.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&moyDep="+moyDep+"&natExe="+natExe+"&lieuExe="+lieuExe;
+        var path = "Control/documentsAdministratif/genAttestations.php?nom="+nom+"&prenom="+prenom+"&sexe="+sexe+"&nationalite="+nationalite+"&naissance="+naissance+"&lieuNaissance="+lieuNaissance+"&departement="+departement+"&adresse="+adresse+"&adresse_suite="+adresse_suite+"&code_postal="+code_postal+"&ville="+ville+"&debutContrat="+debutContrat+"&finContrat="+finContrat+"&moyDep="+moyDep+"&natExe="+natExe+"&lieuExe="+lieuExe;
         window.open(path,'_blank'); 
     }
 
