@@ -20,7 +20,7 @@ function getOptionDepartement($selected=null) {
     $data = $req->fetchAll();
     $option = "<option value='NULL'> Departement de naissance </option>";
     foreach( $data as $element){
-        $option .= "<option value='".$element->idDepartement."'".($selected!=null?($selected==$element->idDepartement?"selected":""):"").">".$element->codeDepartement." - ".$element->nomDepartement."</option>";
+        $option .= "<option value='".$element->idDepartement."'".($selected!=null?(($selected==$element->idDepartement)?"selected":""):"").">".$element->codeDepartement." - ".$element->nomDepartement."</option>";
     }
     return $option;
 }

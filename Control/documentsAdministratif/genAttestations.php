@@ -44,7 +44,7 @@
     $pdf->Cell(0,0,'JUSTIFICATIF DE DÉPLACEMENT PROFESSIONNEL',0,1,'C');
     $pdf->Ln(8);
     $pdf->SetFont('RobotoItal','',12);
-    $pdf->Cell(0,6,'En application des mesures générales nécessaires pour faire face à l’épidémie de covid-19',0,1,'C');
+    $pdf->Cell(0,6,'En application des mesures générales nécessaires pour faire face à l’épidémie de Covid-19',0,1,'C');
     $pdf->Cell(0,6,'dans le cadre de l’état d’urgence sanitaire.',0,1,'C');
     $pdf->Ln(1);
 

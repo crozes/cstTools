@@ -1,5 +1,6 @@
 <?php
     include "Control/admin/getInfo.php";
+    include "Control/licence/functionLicencie.php";
 
     if($_SESSION['Auth'][0]->valueRole<3){
         header('Location:?page=accueil');
@@ -13,7 +14,7 @@
 </div>
 <div class="container" style="padding: 40px;background-color: white;box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);border-radius: 15px;">
     <div class="row mb-4">
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="card card-stats">
                 <div class="card-body ">
                     <div class="row">
@@ -38,7 +39,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="card card-stats">
                 <div class="card-body ">
                     <div class="row">
@@ -63,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="card card-stats">
                 <div class="card-body ">
                     <div class="row">
@@ -88,7 +89,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-3 col-md-6 col-sm-6">
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
             <div class="card card-stats">
                 <div class="card-body ">
                     <div class="row">
@@ -113,23 +114,53 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="fas fa-address-card text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Nombres de licenciés</p>
+                                <p class="card-title"><?php echo getNbrLicencie(); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                    <a href="?page=admin&type=licencies" class="text-success"><i class="fa fa-refresh mr-2"></i> Voir les licenciés...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div id="corpAdministration">
         <?php
-            if($_GET["type"]=="users"){
-                include "View/admin/Admin_users.php";
-            }
-            else if($_GET["type"]=="declarations"){
-                include "View/admin/Admin_declas.php";
-            }
-            else if($_GET["type"]=="types-action"){
-                include "View/admin/Admin_types.php";
-            }
-            else if($_GET["type"]=="lieux-action"){
-                include "View/admin/Admin_lieux.php";
-            }
-            else{
-                include "View/admin/Admin_accueil.php";
+            if(isset($_GET["type"])){
+                if($_GET["type"]=="users"){
+                    include "View/admin/Admin_users.php";
+                }
+                else if($_GET["type"]=="declarations"){
+                    include "View/admin/Admin_declas.php";
+                }
+                else if($_GET["type"]=="types-action"){
+                    include "View/admin/Admin_types.php";
+                }
+                else if($_GET["type"]=="lieux-action"){
+                    include "View/admin/Admin_lieux.php";
+                }
+                else if($_GET["type"]=="licencies"){
+                    include "View/admin/Admin_licencies.php";
+                }
+                else{
+                    //include "View/admin/Admin_accueil.php";
+                }
             }
         ?>
     </div>
